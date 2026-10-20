@@ -1,0 +1,141 @@
+generator client {
+  provider           = "prisma-client"
+  output             = "../generated/prisma"
+  importFileExtension = "ts"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model categorias {
+  id          Int         @id @default(autoincrement())
+  nombre      String      @unique(map: "nombre") @db.VarChar(80)
+  descripcion String?     @db.VarChar(200)
+  productos   productos[]
+}
+
+model clientes {
+  id        Int       @id @default(autoincrement())
+  nombre    String    @db.VarChar(100)
+  cuit      String?   @unique(map: "cuit") @db.VarChar(20)
+  telefono  String?   @db.VarChar(30)
+  email     String?   @unique(map: "email") @db.VarChar(100)
+  direccion String?   @db.VarChar(200)
+  activo    Boolean   @default(true)
+  pedidos   pedidos[]
+}
+
+model companias_envios {
+  id         Int      @id @default(autoincrement())
+  nombre     String   @db.VarChar(100)
+  telefono   String?  @db.VarChar(30)
+  costo_base Decimal  @db.Decimal(10, 2)
+  envios     envios[]
+}
+
+model detalle_pedido {
+  id              Int       @id @default(autoincrement())
+  id_pedido       Int
+  id_producto     Int
+  cantidad        Int
+  precio_unitario Decimal   @db.Decimal(10, 2)
+  pedidos         pedidos   @relation(fields: [id_pedido], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "detalle_pedido_ibfk_1")
+  productos       productos @relation(fields: [id_producto], references: [id], onUpdate: Restrict, map: "detalle_pedido_ibfk_2")
+
+  @@unique([id_pedido, id_producto], map: "uk_pedido_producto")
+  @@index([id_producto], map: "id_producto")
+}
+
+model empleados {
+  id            Int       @id @default(autoincrement())
+  nombre        String    @db.VarChar(100)
+  apellido      String    @db.VarChar(100)
+  puesto        String    @db.VarChar(60)
+  salario       Decimal   @db.Decimal(10, 2)
+  fecha_ingreso DateTime  @db.Date
+  activo        Boolean   @default(true)
+  pedidos       pedidos[]
+}
+
+model envios {
+  id               Int              @id @default(autoincrement())
+  id_pedido        Int              @unique(map: "id_pedido")
+  id_compania      Int
+  direccion        String           @db.VarChar(200)
+  fecha_envio      DateTime?        @db.Date
+  estado           envios_estado    @default(preparando)
+  pedidos          pedidos          @relation(fields: [id_pedido], references: [id], onUpdate: Restrict, map: "envios_ibfk_1")
+  companias_envios companias_envios @relation(fields: [id_compania], references: [id], onUpdate: Restrict, map: "envios_ibfk_2")
+
+  @@index([id_compania], map: "id_compania")
+}
+
+model facturas {
+  id        Int      @id @default(autoincrement())
+  numero    String   @unique(map: "numero") @db.VarChar(30)
+  fecha     DateTime @db.Date
+  subtotal  Decimal  @db.Decimal(10, 2)
+  iva       Decimal  @db.Decimal(10, 2)
+  total     Decimal  @db.Decimal(10, 2)
+  id_pedido Int      @unique(map: "id_pedido")
+  pedidos   pedidos  @relation(fields: [id_pedido], references: [id], onUpdate: Restrict, map: "facturas_ibfk_1")
+}
+
+model pedidos {
+  id             Int              @id @default(autoincrement())
+  fecha          DateTime         @db.Date
+  id_cliente     Int
+  id_empleado    Int
+  estado         pedidos_estado   @default(pendiente)
+  detalle_pedido detalle_pedido[]
+  envios         envios?
+  facturas       facturas?
+  clientes       clientes         @relation(fields: [id_cliente], references: [id], onUpdate: Restrict, map: "pedidos_ibfk_1")
+  empleados      empleados        @relation(fields: [id_empleado], references: [id], onUpdate: Restrict, map: "pedidos_ibfk_2")
+
+  @@index([id_cliente], map: "id_cliente")
+  @@index([id_empleado], map: "id_empleado")
+}
+
+model productos {
+  id             Int              @id @default(autoincrement())
+  nombre         String           @db.VarChar(100)
+  precio         Decimal          @db.Decimal(10, 2)
+  stock          Int              @default(0)
+  id_categoria   Int?
+  id_proveedor   Int?
+  activo         Boolean          @default(true)
+  detalle_pedido detalle_pedido[]
+  categorias     categorias?      @relation(fields: [id_categoria], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "productos_ibfk_1")
+  proveedores    proveedores?     @relation(fields: [id_proveedor], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "productos_ibfk_2")
+
+  @@index([id_categoria], map: "id_categoria")
+  @@index([id_proveedor], map: "id_proveedor")
+}
+
+model proveedores {
+  id        Int         @id @default(autoincrement())
+  nombre    String      @db.VarChar(100)
+  cuit      String      @unique(map: "cuit") @db.VarChar(20)
+  telefono  String?     @db.VarChar(30)
+  email     String?     @unique(map: "email") @db.VarChar(100)
+  direccion String?     @db.VarChar(200)
+  activo    Boolean     @default(true)
+  productos productos[]
+}
+
+enum pedidos_estado {
+  pendiente
+  en_preparacion @map("en preparacion")
+  en_camino      @map("en camino")
+  entregado
+  cancelado
+}
+
+enum envios_estado {
+  preparando
+  en_camino  @map("en camino")
+  entregado
+  cancelado
+}

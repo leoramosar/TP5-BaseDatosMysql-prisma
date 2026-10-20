@@ -1,0 +1,44 @@
+import { Request, Response, NextFunction } from 'express';
+import * as model from '../models/proveedores.model.js';
+
+export const getAll = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const data = await model.findAll();
+    res.json(data);
+  } catch (err) { next(err); }
+};
+
+export const getOne = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const data = await model.findById(Number(req.params.id));
+    if (!data) return res.status(404).json({ error: "Proveedor no encontrado" });
+    res.json(data);
+  } catch (err) { next(err); }
+};
+
+export const create = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const data = await model.create(req.body);
+    res.status(201).json(data);
+  } catch (err) { next(err); }
+};
+
+export const update = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const existe = await model.findById(Number(req.params.id));
+    if (!existe) return res.status(404).json({ error: "Proveedor no encontrado" });
+    
+    const data = await model.update(Number(req.params.id), req.body);
+    res.json(data);
+  } catch (err) { next(err); }
+};
+
+export const remove = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const existe = await model.findById(Number(req.params.id));
+    if (!existe) return res.status(404).json({ error: "Proveedor no encontrado" });
+    
+    await model.remove(Number(req.params.id));
+    res.json({ mensaje: "Proveedor dado de baja correctamente" });
+  } catch (err) { next(err); }
+};
