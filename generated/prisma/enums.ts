@@ -9,15 +9,12 @@
 * 🟢 You can import this file directly.
 */
 
-export const pedidos_estado = {
-  pendiente: 'pendiente',
-  en_preparacion: 'en_preparacion',
-  en_camino: 'en_camino',
-  entregado: 'entregado',
-  cancelado: 'cancelado'
+export const Role = {
+  ADMIN: 'ADMIN',
+  USER: 'USER'
 } as const
 
-export type pedidos_estado = (typeof pedidos_estado)[keyof typeof pedidos_estado]
+export type Role = (typeof Role)[keyof typeof Role]
 
 
 export const envios_estado = {
@@ -28,3 +25,13 @@ export const envios_estado = {
 } as const
 
 export type envios_estado = (typeof envios_estado)[keyof typeof envios_estado]
+
+
+export const pedidos_estado = {
+  pendiente: 'pendiente',
+  confirmado: 'confirmado',
+  facturado: 'facturado',
+  cancelado: 'cancelado'
+} as const
+
+export type pedidos_estado = (typeof pedidos_estado)[keyof typeof pedidos_estado]

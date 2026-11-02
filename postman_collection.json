@@ -15,7 +15,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/proveedores",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["proveedores"]
             }
           }
@@ -27,7 +29,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/proveedores/1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["proveedores", "1"]
             }
           }
@@ -43,7 +47,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/proveedores",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["proveedores"]
             }
           }
@@ -59,7 +65,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/proveedores/1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["proveedores", "1"]
             }
           }
@@ -71,7 +79,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/proveedores/3",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["proveedores", "3"]
             }
           }
@@ -88,7 +98,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/categorias",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["categorias"]
             }
           }
@@ -104,7 +116,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/categorias",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["categorias"]
             }
           }
@@ -120,7 +134,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/categorias/1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["categorias", "1"]
             }
           }
@@ -132,7 +148,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/categorias/4",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["categorias", "4"]
             }
           }
@@ -149,7 +167,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/productos",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["productos"]
             }
           }
@@ -160,10 +180,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:3000/productos?categoria=Bebidas",
-              "host": ["http://localhost:3000"],
+              "raw": "http://localhost:3000/productos?categorias=Bebidas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["productos"],
-              "query": [{ "key": "categoria", "value": "Bebidas" }]
+              "query": [{ "key": "categorias", "value": "Bebidas" }]
             }
           }
         },
@@ -174,7 +196,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/productos?precio_max=2000",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["productos"],
               "query": [{ "key": "precio_max", "value": "2000" }]
             }
@@ -187,7 +211,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/productos/stock-por-categoria",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["productos", "stock-por-categoria"]
             }
           }
@@ -203,7 +229,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/productos",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["productos"]
             }
           }
@@ -219,7 +247,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/productos/1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["productos", "1"]
             }
           }
@@ -231,7 +261,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/productos/6",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["productos", "6"]
             }
           }
@@ -248,7 +280,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/clientes",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["clientes"]
             }
           }
@@ -260,7 +294,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/clientes/1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["clientes", "1"]
             }
           }
@@ -272,7 +308,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/clientes/total-por-cliente",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["clientes", "total-por-cliente"]
             }
           }
@@ -288,7 +326,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/clientes",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["clientes"]
             }
           }
@@ -304,7 +344,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/clientes/1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["clientes", "1"]
             }
           }
@@ -316,7 +358,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/clientes/3",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["clientes", "3"]
             }
           }
@@ -333,7 +377,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/empleados",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["empleados"]
             }
           }
@@ -345,7 +391,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/empleados/1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["empleados", "1"]
             }
           }
@@ -357,7 +405,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/empleados/salarios-por-puesto",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["empleados", "salarios-por-puesto"]
             }
           }
@@ -369,11 +419,13 @@
             "header": [{ "key": "Content-Type", "value": "application/json" }],
             "body": {
               "mode": "raw",
-              "raw": "{\"nombre\":\"Carlos\",\"apellido\":\"López\",\"puesto\":\"Repartidor\",\"salario\":780000,\"fecha_ingreso\":\"2024-01-15\"}"
+              "raw": "{\"nombre\":\"Carlos\",\"apellido\":\"López\",\"puesto\":\"Repartidor\",\"salario\":780000,\"fecha_ingreso\":\"2024-01-15T00:00:00.000Z\"}"
             },
             "url": {
               "raw": "http://localhost:3000/empleados",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["empleados"]
             }
           }
@@ -385,11 +437,13 @@
             "header": [{ "key": "Content-Type", "value": "application/json" }],
             "body": {
               "mode": "raw",
-              "raw": "{\"nombre\":\"Juan\",\"apellido\":\"Pérez\",\"puesto\":\"Vendedor Senior\",\"salario\":950000,\"fecha_ingreso\":\"2023-03-01\"}"
+              "raw": "{\"nombre\":\"Juan\",\"apellido\":\"Pérez\",\"puesto\":\"Vendedor Senior\",\"salario\":950000,\"fecha_ingreso\":\"2023-03-01T00:00:00.000Z\"}"
             },
             "url": {
               "raw": "http://localhost:3000/empleados/1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["empleados", "1"]
             }
           }
@@ -401,7 +455,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/empleados/3",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["empleados", "3"]
             }
           }
@@ -418,7 +474,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/pedidos",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["pedidos"]
             }
           }
@@ -429,10 +487,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:3000/pedidos?estado=entregado",
-              "host": ["http://localhost:3000"],
+              "raw": "http://localhost:3000/pedidos?estado=pendiente",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["pedidos"],
-              "query": [{ "key": "estado", "value": "entregado" }]
+              "query": [{ "key": "estado", "value": "pendiente" }]
             }
           }
         },
@@ -443,7 +503,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/pedidos?id_cliente=1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["pedidos"],
               "query": [{ "key": "id_cliente", "value": "1" }]
             }
@@ -456,7 +518,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/pedidos/1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["pedidos", "1"]
             }
           }
@@ -468,7 +532,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/pedidos/total-por-mes",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["pedidos", "total-por-mes"]
             }
           }
@@ -484,7 +550,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/pedidos",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["pedidos"]
             }
           }
@@ -500,7 +568,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/pedidos/1/detalle",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["pedidos", "1", "detalle"]
             }
           }
@@ -512,11 +582,13 @@
             "header": [{ "key": "Content-Type", "value": "application/json" }],
             "body": {
               "mode": "raw",
-              "raw": "{\"fecha\":\"2025-06-05\",\"id_cliente\":2,\"id_empleado\":2,\"estado\":\"entregado\"}"
+              "raw": "{\"fecha\":\"2025-06-05\",\"id_cliente\":2,\"id_empleado\":2,\"estado\":\"confirmado\"}"
             },
             "url": {
               "raw": "http://localhost:3000/pedidos/2",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["pedidos", "2"]
             }
           }
@@ -528,93 +600,10 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/pedidos/3",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["pedidos", "3"]
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Facturas",
-      "item": [
-        {
-          "name": "Listar con JOIN",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:3000/facturas",
-              "host": ["http://localhost:3000"],
-              "path": ["facturas"]
-            }
-          }
-        },
-        {
-          "name": "Obtener por ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:3000/facturas/1",
-              "host": ["http://localhost:3000"],
-              "path": ["facturas", "1"]
-            }
-          }
-        },
-        {
-          "name": "IVA por mes",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:3000/facturas/iva-por-mes",
-              "host": ["http://localhost:3000"],
-              "path": ["facturas", "iva-por-mes"]
-            }
-          }
-        },
-        {
-          "name": "Crear",
-          "request": {
-            "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "body": {
-              "mode": "raw",
-              "raw": "{\"numero\":\"A-0001-00000002\",\"fecha\":\"2025-06-05\",\"subtotal\":21000,\"iva\":4410,\"total\":25410,\"id_pedido\":2}"
-            },
-            "url": {
-              "raw": "http://localhost:3000/facturas",
-              "host": ["http://localhost:3000"],
-              "path": ["facturas"]
-            }
-          }
-        },
-        {
-          "name": "Actualizar",
-          "request": {
-            "method": "PUT",
-            "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "body": {
-              "mode": "raw",
-              "raw": "{\"numero\":\"A-0001-00000001\",\"fecha\":\"2025-06-01\",\"subtotal\":53000,\"iva\":11130,\"total\":64130,\"id_pedido\":1}"
-            },
-            "url": {
-              "raw": "http://localhost:3000/facturas/1",
-              "host": ["http://localhost:3000"],
-              "path": ["facturas", "1"]
-            }
-          }
-        },
-        {
-          "name": "Eliminar",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:3000/facturas/2",
-              "host": ["http://localhost:3000"],
-              "path": ["facturas", "2"]
             }
           }
         }
@@ -630,7 +619,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/companias",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["companias"]
             }
           }
@@ -642,7 +633,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/companias/1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["companias", "1"]
             }
           }
@@ -654,7 +647,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/companias/envios-por-compania",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["companias", "envios-por-compania"]
             }
           }
@@ -670,7 +665,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/companias",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["companias"]
             }
           }
@@ -686,7 +683,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/companias/1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["companias", "1"]
             }
           }
@@ -698,7 +697,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/companias/3",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["companias", "3"]
             }
           }
@@ -715,7 +716,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/envios",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["envios"]
             }
           }
@@ -727,7 +730,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/envios/1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["envios", "1"]
             }
           }
@@ -743,7 +748,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/envios",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["envios"]
             }
           }
@@ -759,7 +766,9 @@
             },
             "url": {
               "raw": "http://localhost:3000/envios/1",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["envios", "1"]
             }
           }
@@ -771,7 +780,9 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/envios/3",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["envios", "3"]
             }
           }
@@ -783,8 +794,51 @@
             "header": [],
             "url": {
               "raw": "http://localhost:3000/envios/999",
-              "host": ["http://localhost:3000"],
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
               "path": ["envios", "999"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Usuarios",
+      "item": [
+        {
+          "name": "Registrar",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Emmanuel\",\n  \"email\": \"emmanuel@test.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/usuarios/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["usuarios", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"emmanuel@test.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/usuarios/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["usuarios", "login"]
             }
           }
         }

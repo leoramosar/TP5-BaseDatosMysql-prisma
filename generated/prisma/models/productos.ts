@@ -50,6 +50,8 @@ export type ProductosMinAggregateOutputType = {
   id_categoria: number | null
   id_proveedor: number | null
   activo: boolean | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ProductosMaxAggregateOutputType = {
@@ -60,6 +62,8 @@ export type ProductosMaxAggregateOutputType = {
   id_categoria: number | null
   id_proveedor: number | null
   activo: boolean | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ProductosCountAggregateOutputType = {
@@ -70,6 +74,8 @@ export type ProductosCountAggregateOutputType = {
   id_categoria: number
   id_proveedor: number
   activo: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -98,6 +104,8 @@ export type ProductosMinAggregateInputType = {
   id_categoria?: true
   id_proveedor?: true
   activo?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type ProductosMaxAggregateInputType = {
@@ -108,6 +116,8 @@ export type ProductosMaxAggregateInputType = {
   id_categoria?: true
   id_proveedor?: true
   activo?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type ProductosCountAggregateInputType = {
@@ -118,6 +128,8 @@ export type ProductosCountAggregateInputType = {
   id_categoria?: true
   id_proveedor?: true
   activo?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -215,6 +227,8 @@ export type ProductosGroupByOutputType = {
   id_categoria: number | null
   id_proveedor: number | null
   activo: boolean
+  createdAt: Date
+  updatedAt: Date
   _count: ProductosCountAggregateOutputType | null
   _avg: ProductosAvgAggregateOutputType | null
   _sum: ProductosSumAggregateOutputType | null
@@ -248,6 +262,8 @@ export type productosWhereInput = {
   id_categoria?: Prisma.IntNullableFilter<"productos"> | number | null
   id_proveedor?: Prisma.IntNullableFilter<"productos"> | number | null
   activo?: Prisma.BoolFilter<"productos"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"productos"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"productos"> | Date | string
   detalle_pedido?: Prisma.Detalle_pedidoListRelationFilter
   categorias?: Prisma.XOR<Prisma.CategoriasNullableScalarRelationFilter, Prisma.categoriasWhereInput> | null
   proveedores?: Prisma.XOR<Prisma.ProveedoresNullableScalarRelationFilter, Prisma.proveedoresWhereInput> | null
@@ -261,6 +277,8 @@ export type productosOrderByWithRelationInput = {
   id_categoria?: Prisma.SortOrderInput | Prisma.SortOrder
   id_proveedor?: Prisma.SortOrderInput | Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   detalle_pedido?: Prisma.detalle_pedidoOrderByRelationAggregateInput
   categorias?: Prisma.categoriasOrderByWithRelationInput
   proveedores?: Prisma.proveedoresOrderByWithRelationInput
@@ -278,6 +296,8 @@ export type productosWhereUniqueInput = Prisma.AtLeast<{
   id_categoria?: Prisma.IntNullableFilter<"productos"> | number | null
   id_proveedor?: Prisma.IntNullableFilter<"productos"> | number | null
   activo?: Prisma.BoolFilter<"productos"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"productos"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"productos"> | Date | string
   detalle_pedido?: Prisma.Detalle_pedidoListRelationFilter
   categorias?: Prisma.XOR<Prisma.CategoriasNullableScalarRelationFilter, Prisma.categoriasWhereInput> | null
   proveedores?: Prisma.XOR<Prisma.ProveedoresNullableScalarRelationFilter, Prisma.proveedoresWhereInput> | null
@@ -291,6 +311,8 @@ export type productosOrderByWithAggregationInput = {
   id_categoria?: Prisma.SortOrderInput | Prisma.SortOrder
   id_proveedor?: Prisma.SortOrderInput | Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.productosCountOrderByAggregateInput
   _avg?: Prisma.productosAvgOrderByAggregateInput
   _max?: Prisma.productosMaxOrderByAggregateInput
@@ -309,6 +331,8 @@ export type productosScalarWhereWithAggregatesInput = {
   id_categoria?: Prisma.IntNullableWithAggregatesFilter<"productos"> | number | null
   id_proveedor?: Prisma.IntNullableWithAggregatesFilter<"productos"> | number | null
   activo?: Prisma.BoolWithAggregatesFilter<"productos"> | boolean
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"productos"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"productos"> | Date | string
 }
 
 export type productosCreateInput = {
@@ -316,6 +340,8 @@ export type productosCreateInput = {
   precio: runtime.Decimal | runtime.DecimalJsLike | number | string
   stock?: number
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoCreateNestedManyWithoutProductosInput
   categorias?: Prisma.categoriasCreateNestedOneWithoutProductosInput
   proveedores?: Prisma.proveedoresCreateNestedOneWithoutProductosInput
@@ -329,6 +355,8 @@ export type productosUncheckedCreateInput = {
   id_categoria?: number | null
   id_proveedor?: number | null
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedCreateNestedManyWithoutProductosInput
 }
 
@@ -337,6 +365,8 @@ export type productosUpdateInput = {
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUpdateManyWithoutProductosNestedInput
   categorias?: Prisma.categoriasUpdateOneWithoutProductosNestedInput
   proveedores?: Prisma.proveedoresUpdateOneWithoutProductosNestedInput
@@ -350,6 +380,8 @@ export type productosUncheckedUpdateInput = {
   id_categoria?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   id_proveedor?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedUpdateManyWithoutProductosNestedInput
 }
 
@@ -361,6 +393,8 @@ export type productosCreateManyInput = {
   id_categoria?: number | null
   id_proveedor?: number | null
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type productosUpdateManyMutationInput = {
@@ -368,6 +402,8 @@ export type productosUpdateManyMutationInput = {
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type productosUncheckedUpdateManyInput = {
@@ -378,6 +414,8 @@ export type productosUncheckedUpdateManyInput = {
   id_categoria?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   id_proveedor?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProductosListRelationFilter = {
@@ -409,6 +447,8 @@ export type productosCountOrderByAggregateInput = {
   id_categoria?: Prisma.SortOrder
   id_proveedor?: Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type productosAvgOrderByAggregateInput = {
@@ -427,6 +467,8 @@ export type productosMaxOrderByAggregateInput = {
   id_categoria?: Prisma.SortOrder
   id_proveedor?: Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type productosMinOrderByAggregateInput = {
@@ -437,6 +479,8 @@ export type productosMinOrderByAggregateInput = {
   id_categoria?: Prisma.SortOrder
   id_proveedor?: Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type productosSumOrderByAggregateInput = {
@@ -558,6 +602,8 @@ export type productosCreateWithoutCategoriasInput = {
   precio: runtime.Decimal | runtime.DecimalJsLike | number | string
   stock?: number
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoCreateNestedManyWithoutProductosInput
   proveedores?: Prisma.proveedoresCreateNestedOneWithoutProductosInput
 }
@@ -569,6 +615,8 @@ export type productosUncheckedCreateWithoutCategoriasInput = {
   stock?: number
   id_proveedor?: number | null
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedCreateNestedManyWithoutProductosInput
 }
 
@@ -609,6 +657,8 @@ export type productosScalarWhereInput = {
   id_categoria?: Prisma.IntNullableFilter<"productos"> | number | null
   id_proveedor?: Prisma.IntNullableFilter<"productos"> | number | null
   activo?: Prisma.BoolFilter<"productos"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"productos"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"productos"> | Date | string
 }
 
 export type productosCreateWithoutDetalle_pedidoInput = {
@@ -616,6 +666,8 @@ export type productosCreateWithoutDetalle_pedidoInput = {
   precio: runtime.Decimal | runtime.DecimalJsLike | number | string
   stock?: number
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   categorias?: Prisma.categoriasCreateNestedOneWithoutProductosInput
   proveedores?: Prisma.proveedoresCreateNestedOneWithoutProductosInput
 }
@@ -628,6 +680,8 @@ export type productosUncheckedCreateWithoutDetalle_pedidoInput = {
   id_categoria?: number | null
   id_proveedor?: number | null
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type productosCreateOrConnectWithoutDetalle_pedidoInput = {
@@ -651,6 +705,8 @@ export type productosUpdateWithoutDetalle_pedidoInput = {
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   categorias?: Prisma.categoriasUpdateOneWithoutProductosNestedInput
   proveedores?: Prisma.proveedoresUpdateOneWithoutProductosNestedInput
 }
@@ -663,6 +719,8 @@ export type productosUncheckedUpdateWithoutDetalle_pedidoInput = {
   id_categoria?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   id_proveedor?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type productosCreateWithoutProveedoresInput = {
@@ -670,6 +728,8 @@ export type productosCreateWithoutProveedoresInput = {
   precio: runtime.Decimal | runtime.DecimalJsLike | number | string
   stock?: number
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoCreateNestedManyWithoutProductosInput
   categorias?: Prisma.categoriasCreateNestedOneWithoutProductosInput
 }
@@ -681,6 +741,8 @@ export type productosUncheckedCreateWithoutProveedoresInput = {
   stock?: number
   id_categoria?: number | null
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedCreateNestedManyWithoutProductosInput
 }
 
@@ -717,6 +779,8 @@ export type productosCreateManyCategoriasInput = {
   stock?: number
   id_proveedor?: number | null
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type productosUpdateWithoutCategoriasInput = {
@@ -724,6 +788,8 @@ export type productosUpdateWithoutCategoriasInput = {
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUpdateManyWithoutProductosNestedInput
   proveedores?: Prisma.proveedoresUpdateOneWithoutProductosNestedInput
 }
@@ -735,6 +801,8 @@ export type productosUncheckedUpdateWithoutCategoriasInput = {
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   id_proveedor?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedUpdateManyWithoutProductosNestedInput
 }
 
@@ -745,6 +813,8 @@ export type productosUncheckedUpdateManyWithoutCategoriasInput = {
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   id_proveedor?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type productosCreateManyProveedoresInput = {
@@ -754,6 +824,8 @@ export type productosCreateManyProveedoresInput = {
   stock?: number
   id_categoria?: number | null
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type productosUpdateWithoutProveedoresInput = {
@@ -761,6 +833,8 @@ export type productosUpdateWithoutProveedoresInput = {
   precio?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUpdateManyWithoutProductosNestedInput
   categorias?: Prisma.categoriasUpdateOneWithoutProductosNestedInput
 }
@@ -772,6 +846,8 @@ export type productosUncheckedUpdateWithoutProveedoresInput = {
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   id_categoria?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedUpdateManyWithoutProductosNestedInput
 }
 
@@ -782,6 +858,8 @@ export type productosUncheckedUpdateManyWithoutProveedoresInput = {
   stock?: Prisma.IntFieldUpdateOperationsInput | number
   id_categoria?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -823,6 +901,8 @@ export type productosSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   id_categoria?: boolean
   id_proveedor?: boolean
   activo?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   detalle_pedido?: boolean | Prisma.productos$detalle_pedidoArgs<ExtArgs>
   categorias?: boolean | Prisma.productos$categoriasArgs<ExtArgs>
   proveedores?: boolean | Prisma.productos$proveedoresArgs<ExtArgs>
@@ -839,9 +919,11 @@ export type productosSelectScalar = {
   id_categoria?: boolean
   id_proveedor?: boolean
   activo?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type productosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "precio" | "stock" | "id_categoria" | "id_proveedor" | "activo", ExtArgs["result"]["productos"]>
+export type productosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "precio" | "stock" | "id_categoria" | "id_proveedor" | "activo" | "createdAt" | "updatedAt", ExtArgs["result"]["productos"]>
 export type productosInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   detalle_pedido?: boolean | Prisma.productos$detalle_pedidoArgs<ExtArgs>
   categorias?: boolean | Prisma.productos$categoriasArgs<ExtArgs>
@@ -864,6 +946,8 @@ export type $productosPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     id_categoria: number | null
     id_proveedor: number | null
     activo: boolean
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["productos"]>
   composites: {}
 }
@@ -1243,6 +1327,8 @@ export interface productosFieldRefs {
   readonly id_categoria: Prisma.FieldRef<"productos", 'Int'>
   readonly id_proveedor: Prisma.FieldRef<"productos", 'Int'>
   readonly activo: Prisma.FieldRef<"productos", 'Boolean'>
+  readonly createdAt: Prisma.FieldRef<"productos", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"productos", 'DateTime'>
 }
     
 

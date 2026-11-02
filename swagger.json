@@ -1,0 +1,640 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Distribuidora",
+    "version": "1.0",
+    "description": "Documentacion basica de la API del TP"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/usuarios/register": {
+      "post": {
+        "tags": ["Usuarios"],
+        "summary": "Registrar usuario",
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nombre": { "type": "string" },
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                }
+              },
+              "example": {
+                "nombre": "Emmanuel",
+                "email": "emmanuel@test.com",
+                "password": "password123"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Usuario creado" }
+        }
+      }
+    },
+    "/usuarios/login": {
+      "post": {
+        "tags": ["Usuarios"],
+        "summary": "Login",
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                }
+              },
+              "example": {
+                "email": "emmanuel@test.com",
+                "password": "password123"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Devuelve el token" }
+        }
+      }
+    },
+    "/categorias": {
+      "get": {
+        "tags": ["Categorias"],
+        "summary": "Listar categorias",
+        "responses": { "200": { "description": "ok" } }
+      },
+      "post": {
+        "tags": ["Categorias"],
+        "summary": "Crear categoria",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nombre": { "type": "string" },
+                  "descripcion": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "creada" } }
+      }
+    },
+    "/categorias/{id}": {
+      "get": {
+        "tags": ["Categorias"],
+        "summary": "Buscar categoria por id",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      },
+      "put": {
+        "tags": ["Categorias"],
+        "summary": "Actualizar categoria",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "type": "object" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "ok" } }
+      },
+      "delete": {
+        "tags": ["Categorias"],
+        "summary": "Borrar categoria",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/productos": {
+      "get": {
+        "tags": ["Productos"],
+        "summary": "Listar productos",
+        "responses": { "200": { "description": "ok" } }
+      },
+      "post": {
+        "tags": ["Productos"],
+        "summary": "Crear producto",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nombre": { "type": "string" },
+                  "precio": { "type": "number" },
+                  "stock": { "type": "integer" },
+                  "id_categoria": { "type": "integer" },
+                  "id_proveedor": { "type": "integer" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "creado" } }
+      }
+    },
+    "/productos/stock-por-categoria": {
+      "get": {
+        "tags": ["Productos"],
+        "summary": "Stock agrupado por categoria",
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/productos/{id}": {
+      "get": {
+        "tags": ["Productos"],
+        "summary": "Buscar producto",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      },
+      "put": {
+        "tags": ["Productos"],
+        "summary": "Actualizar producto",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "type": "object" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "ok" } }
+      },
+      "delete": {
+        "tags": ["Productos"],
+        "summary": "Borrar producto",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/clientes": {
+      "get": {
+        "tags": ["Clientes"],
+        "summary": "Listar clientes",
+        "responses": { "200": { "description": "ok" } }
+      },
+      "post": {
+        "tags": ["Clientes"],
+        "summary": "Crear cliente",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nombre": { "type": "string" },
+                  "cuit": { "type": "string" },
+                  "telefono": { "type": "string" },
+                  "email": { "type": "string" },
+                  "direccion": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "creado" } }
+      }
+    },
+    "/clientes/total-por-cliente": {
+      "get": {
+        "tags": ["Clientes"],
+        "summary": "Total por cliente",
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/clientes/{id}": {
+      "get": {
+        "tags": ["Clientes"],
+        "summary": "Buscar cliente",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      },
+      "put": {
+        "tags": ["Clientes"],
+        "summary": "Actualizar cliente",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "type": "object" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "ok" } }
+      },
+      "delete": {
+        "tags": ["Clientes"],
+        "summary": "Borrar cliente",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/empleados": {
+      "get": {
+        "tags": ["Empleados"],
+        "summary": "Listar empleados",
+        "responses": { "200": { "description": "ok" } }
+      },
+      "post": {
+        "tags": ["Empleados"],
+        "summary": "Crear empleado",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nombre": { "type": "string" },
+                  "apellido": { "type": "string" },
+                  "puesto": { "type": "string" },
+                  "salario": { "type": "number" },
+                  "fecha_ingreso": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "creado" } }
+      }
+    },
+    "/empleados/salarios-por-puesto": {
+      "get": {
+        "tags": ["Empleados"],
+        "summary": "Salarios por puesto",
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/empleados/{id}": {
+      "get": {
+        "tags": ["Empleados"],
+        "summary": "Buscar empleado",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      },
+      "put": {
+        "tags": ["Empleados"],
+        "summary": "Actualizar empleado",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "type": "object" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "ok" } }
+      },
+      "delete": {
+        "tags": ["Empleados"],
+        "summary": "Borrar empleado",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/proveedores": {
+      "get": {
+        "tags": ["Proveedores"],
+        "summary": "Listar proveedores",
+        "responses": { "200": { "description": "ok" } }
+      },
+      "post": {
+        "tags": ["Proveedores"],
+        "summary": "Crear proveedor",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nombre": { "type": "string" },
+                  "cuit": { "type": "string" },
+                  "telefono": { "type": "string" },
+                  "email": { "type": "string" },
+                  "direccion": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "creado" } }
+      }
+    },
+    "/proveedores/{id}": {
+      "get": {
+        "tags": ["Proveedores"],
+        "summary": "Buscar proveedor",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      },
+      "put": {
+        "tags": ["Proveedores"],
+        "summary": "Actualizar proveedor",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "type": "object" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "ok" } }
+      },
+      "delete": {
+        "tags": ["Proveedores"],
+        "summary": "Borrar proveedor",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/pedidos": {
+      "get": {
+        "tags": ["Pedidos"],
+        "summary": "Listar pedidos",
+        "responses": { "200": { "description": "ok" } }
+      },
+      "post": {
+        "tags": ["Pedidos"],
+        "summary": "Crear pedido",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fecha": { "type": "string" },
+                  "id_cliente": { "type": "integer" },
+                  "id_empleado": { "type": "integer" },
+                  "estado": {
+                    "type": "string",
+                    "enum": ["pendiente", "confirmado", "facturado", "cancelado"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "creado" } }
+      }
+    },
+    "/pedidos/total-por-mes": {
+      "get": {
+        "tags": ["Pedidos"],
+        "summary": "Total de pedidos por mes",
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/pedidos/{id}": {
+      "get": {
+        "tags": ["Pedidos"],
+        "summary": "Buscar pedido",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      },
+      "put": {
+        "tags": ["Pedidos"],
+        "summary": "Actualizar pedido",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "type": "object" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "ok" } }
+      },
+      "delete": {
+        "tags": ["Pedidos"],
+        "summary": "Borrar pedido",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/pedidos/{id}/detalle": {
+      "post": {
+        "tags": ["Pedidos"],
+        "summary": "Agregar detalle al pedido",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_producto": { "type": "integer" },
+                  "cantidad": { "type": "integer" },
+                  "precio_unitario": { "type": "number" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "ok" } }
+      }
+    },
+    "/companias": {
+      "get": {
+        "tags": ["Companias"],
+        "summary": "Listar companias de envio",
+        "responses": { "200": { "description": "ok" } }
+      },
+      "post": {
+        "tags": ["Companias"],
+        "summary": "Crear compania",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nombre": { "type": "string" },
+                  "telefono": { "type": "string" },
+                  "costo_base": { "type": "number" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "creada" } }
+      }
+    },
+    "/companias/envios-por-compania": {
+      "get": {
+        "tags": ["Companias"],
+        "summary": "Envios por compania",
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/companias/{id}": {
+      "get": {
+        "tags": ["Companias"],
+        "summary": "Buscar compania",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      },
+      "put": {
+        "tags": ["Companias"],
+        "summary": "Actualizar compania",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "type": "object" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "ok" } }
+      },
+      "delete": {
+        "tags": ["Companias"],
+        "summary": "Borrar compania",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
+    "/envios": {
+      "get": {
+        "tags": ["Envios"],
+        "summary": "Listar envios",
+        "responses": { "200": { "description": "ok" } }
+      },
+      "post": {
+        "tags": ["Envios"],
+        "summary": "Crear envio",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_pedido": { "type": "integer" },
+                  "id_compania": { "type": "integer" },
+                  "direccion": { "type": "string" },
+                  "fecha_envio": { "type": "string" },
+                  "estado": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "creado" } }
+      }
+    },
+    "/envios/{id}": {
+      "get": {
+        "tags": ["Envios"],
+        "summary": "Buscar envio",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      },
+      "put": {
+        "tags": ["Envios"],
+        "summary": "Actualizar envio",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "type": "object" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "ok" } }
+      },
+      "delete": {
+        "tags": ["Envios"],
+        "summary": "Borrar envio",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "ok" } }
+      }
+    }
+  }
+}

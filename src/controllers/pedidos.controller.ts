@@ -14,13 +14,22 @@ export const getOne = async (req: Request, res: Response, next: NextFunction) =>
 };
 
 export const create = async (req: Request, res: Response, next: NextFunction) => {
-  try { res.status(201).json(await model.create(req.body)); } catch (e) { next(e); }
+  try {
+    if (req.body.fecha) {
+      req.body.fecha = new Date(req.body.fecha).toISOString();
+    }
+    res.status(201).json(await model.create(req.body)); 
+  } catch (e) { next(e); }
 };
 
 export const update = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const ex = await model.findById(Number(req.params.id));
     if (!ex) return res.status(404).json({ error: "Pedido no encontrado" });
+    
+    if (req.body.fecha) {
+      req.body.fecha = new Date(req.body.fecha).toISOString();
+    }
     res.json(await model.update(Number(req.params.id), req.body));
   } catch (e) { next(e); }
 };
@@ -38,6 +47,11 @@ export const addDetalle = async (req: Request, res: Response, next: NextFunction
   try {
     const ex = await model.findById(Number(req.params.id));
     if (!ex) return res.status(404).json({ error: "Pedido no encontrado" });
+
+    if (!req.body.cantidad || req.body.cantidad <= 0) {
+      return res.status(400).json({ error: "La cantidad debe ser mayor a 0" });
+    }
+
     res.status(201).json(await model.addDetalle(Number(req.params.id), req.body));
   } catch (e) { next(e); }
 };

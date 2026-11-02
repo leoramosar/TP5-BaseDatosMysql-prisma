@@ -403,10 +403,10 @@ export const ModelName = {
   detalle_pedido: 'detalle_pedido',
   empleados: 'empleados',
   envios: 'envios',
-  facturas: 'facturas',
   pedidos: 'pedidos',
   productos: 'productos',
-  proveedores: 'proveedores'
+  proveedores: 'proveedores',
+  user: 'user'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -422,7 +422,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "categorias" | "clientes" | "companias_envios" | "detalle_pedido" | "empleados" | "envios" | "facturas" | "pedidos" | "productos" | "proveedores"
+    modelProps: "categorias" | "clientes" | "companias_envios" | "detalle_pedido" | "empleados" | "envios" | "pedidos" | "productos" | "proveedores" | "user"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -822,72 +822,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    facturas: {
-      payload: Prisma.$facturasPayload<ExtArgs>
-      fields: Prisma.facturasFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.facturasFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$facturasPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.facturasFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$facturasPayload>
-        }
-        findFirst: {
-          args: Prisma.facturasFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$facturasPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.facturasFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$facturasPayload>
-        }
-        findMany: {
-          args: Prisma.facturasFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$facturasPayload>[]
-        }
-        create: {
-          args: Prisma.facturasCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$facturasPayload>
-        }
-        createMany: {
-          args: Prisma.facturasCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        delete: {
-          args: Prisma.facturasDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$facturasPayload>
-        }
-        update: {
-          args: Prisma.facturasUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$facturasPayload>
-        }
-        deleteMany: {
-          args: Prisma.facturasDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.facturasUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        upsert: {
-          args: Prisma.facturasUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$facturasPayload>
-        }
-        aggregate: {
-          args: Prisma.FacturasAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateFacturas>
-        }
-        groupBy: {
-          args: Prisma.facturasGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.FacturasGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.facturasCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.FacturasCountAggregateOutputType> | number
-        }
-      }
-    }
     pedidos: {
       payload: Prisma.$pedidosPayload<ExtArgs>
       fields: Prisma.pedidosFieldRefs
@@ -1086,6 +1020,72 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    user: {
+      payload: Prisma.$userPayload<ExtArgs>
+      fields: Prisma.userFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.userFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.userFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>
+        }
+        findFirst: {
+          args: Prisma.userFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.userFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>
+        }
+        findMany: {
+          args: Prisma.userFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>[]
+        }
+        create: {
+          args: Prisma.userCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>
+        }
+        createMany: {
+          args: Prisma.userCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.userDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>
+        }
+        update: {
+          args: Prisma.userUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>
+        }
+        deleteMany: {
+          args: Prisma.userDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.userUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.userUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$userPayload>
+        }
+        aggregate: {
+          args: Prisma.UserAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUser>
+        }
+        groupBy: {
+          args: Prisma.userGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.userCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UserCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1128,7 +1128,9 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const CategoriasScalarFieldEnum = {
   id: 'id',
   nombre: 'nombre',
-  descripcion: 'descripcion'
+  descripcion: 'descripcion',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type CategoriasScalarFieldEnum = (typeof CategoriasScalarFieldEnum)[keyof typeof CategoriasScalarFieldEnum]
@@ -1141,7 +1143,9 @@ export const ClientesScalarFieldEnum = {
   telefono: 'telefono',
   email: 'email',
   direccion: 'direccion',
-  activo: 'activo'
+  activo: 'activo',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type ClientesScalarFieldEnum = (typeof ClientesScalarFieldEnum)[keyof typeof ClientesScalarFieldEnum]
@@ -1151,7 +1155,9 @@ export const Companias_enviosScalarFieldEnum = {
   id: 'id',
   nombre: 'nombre',
   telefono: 'telefono',
-  costo_base: 'costo_base'
+  costo_base: 'costo_base',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type Companias_enviosScalarFieldEnum = (typeof Companias_enviosScalarFieldEnum)[keyof typeof Companias_enviosScalarFieldEnum]
@@ -1162,7 +1168,9 @@ export const Detalle_pedidoScalarFieldEnum = {
   id_pedido: 'id_pedido',
   id_producto: 'id_producto',
   cantidad: 'cantidad',
-  precio_unitario: 'precio_unitario'
+  precio_unitario: 'precio_unitario',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type Detalle_pedidoScalarFieldEnum = (typeof Detalle_pedidoScalarFieldEnum)[keyof typeof Detalle_pedidoScalarFieldEnum]
@@ -1175,7 +1183,9 @@ export const EmpleadosScalarFieldEnum = {
   puesto: 'puesto',
   salario: 'salario',
   fecha_ingreso: 'fecha_ingreso',
-  activo: 'activo'
+  activo: 'activo',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type EmpleadosScalarFieldEnum = (typeof EmpleadosScalarFieldEnum)[keyof typeof EmpleadosScalarFieldEnum]
@@ -1187,23 +1197,12 @@ export const EnviosScalarFieldEnum = {
   id_compania: 'id_compania',
   direccion: 'direccion',
   fecha_envio: 'fecha_envio',
-  estado: 'estado'
+  estado: 'estado',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type EnviosScalarFieldEnum = (typeof EnviosScalarFieldEnum)[keyof typeof EnviosScalarFieldEnum]
-
-
-export const FacturasScalarFieldEnum = {
-  id: 'id',
-  numero: 'numero',
-  fecha: 'fecha',
-  subtotal: 'subtotal',
-  iva: 'iva',
-  total: 'total',
-  id_pedido: 'id_pedido'
-} as const
-
-export type FacturasScalarFieldEnum = (typeof FacturasScalarFieldEnum)[keyof typeof FacturasScalarFieldEnum]
 
 
 export const PedidosScalarFieldEnum = {
@@ -1211,7 +1210,14 @@ export const PedidosScalarFieldEnum = {
   fecha: 'fecha',
   id_cliente: 'id_cliente',
   id_empleado: 'id_empleado',
-  estado: 'estado'
+  estado: 'estado',
+  numero_factura: 'numero_factura',
+  fecha_factura: 'fecha_factura',
+  subtotal: 'subtotal',
+  iva: 'iva',
+  total: 'total',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type PedidosScalarFieldEnum = (typeof PedidosScalarFieldEnum)[keyof typeof PedidosScalarFieldEnum]
@@ -1224,7 +1230,9 @@ export const ProductosScalarFieldEnum = {
   stock: 'stock',
   id_categoria: 'id_categoria',
   id_proveedor: 'id_proveedor',
-  activo: 'activo'
+  activo: 'activo',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type ProductosScalarFieldEnum = (typeof ProductosScalarFieldEnum)[keyof typeof ProductosScalarFieldEnum]
@@ -1237,10 +1245,26 @@ export const ProveedoresScalarFieldEnum = {
   telefono: 'telefono',
   email: 'email',
   direccion: 'direccion',
-  activo: 'activo'
+  activo: 'activo',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type ProveedoresScalarFieldEnum = (typeof ProveedoresScalarFieldEnum)[keyof typeof ProveedoresScalarFieldEnum]
+
+
+export const UserScalarFieldEnum = {
+  id: 'id',
+  nombre: 'nombre',
+  email: 'email',
+  password: 'password',
+  rol: 'rol',
+  activo: 'activo',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1302,11 +1326,11 @@ export const enviosOrderByRelevanceFieldEnum = {
 export type enviosOrderByRelevanceFieldEnum = (typeof enviosOrderByRelevanceFieldEnum)[keyof typeof enviosOrderByRelevanceFieldEnum]
 
 
-export const facturasOrderByRelevanceFieldEnum = {
-  numero: 'numero'
+export const pedidosOrderByRelevanceFieldEnum = {
+  numero_factura: 'numero_factura'
 } as const
 
-export type facturasOrderByRelevanceFieldEnum = (typeof facturasOrderByRelevanceFieldEnum)[keyof typeof facturasOrderByRelevanceFieldEnum]
+export type pedidosOrderByRelevanceFieldEnum = (typeof pedidosOrderByRelevanceFieldEnum)[keyof typeof pedidosOrderByRelevanceFieldEnum]
 
 
 export const productosOrderByRelevanceFieldEnum = {
@@ -1325,6 +1349,15 @@ export const proveedoresOrderByRelevanceFieldEnum = {
 } as const
 
 export type proveedoresOrderByRelevanceFieldEnum = (typeof proveedoresOrderByRelevanceFieldEnum)[keyof typeof proveedoresOrderByRelevanceFieldEnum]
+
+
+export const userOrderByRelevanceFieldEnum = {
+  nombre: 'nombre',
+  email: 'email',
+  password: 'password'
+} as const
+
+export type userOrderByRelevanceFieldEnum = (typeof userOrderByRelevanceFieldEnum)[keyof typeof userOrderByRelevanceFieldEnum]
 
 
 
@@ -1348,6 +1381,13 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
 
 
 /**
+ * Reference to a field of type 'DateTime'
+ */
+export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+/**
  * Reference to a field of type 'Boolean'
  */
 export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
@@ -1362,13 +1402,6 @@ export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel,
 
 
 /**
- * Reference to a field of type 'DateTime'
- */
-export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
-    
-
-
-/**
  * Reference to a field of type 'envios_estado'
  */
 export type Enumenvios_estadoFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'envios_estado'>
@@ -1379,6 +1412,13 @@ export type Enumenvios_estadoFieldRefInput<$PrismaModel> = FieldRefInputType<$Pr
  * Reference to a field of type 'pedidos_estado'
  */
 export type Enumpedidos_estadoFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'pedidos_estado'>
+    
+
+
+/**
+ * Reference to a field of type 'Role'
+ */
+export type EnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role'>
     
 
 
@@ -1545,10 +1585,10 @@ export type GlobalOmitConfig = {
   detalle_pedido?: Prisma.detalle_pedidoOmit
   empleados?: Prisma.empleadosOmit
   envios?: Prisma.enviosOmit
-  facturas?: Prisma.facturasOmit
   pedidos?: Prisma.pedidosOmit
   productos?: Prisma.productosOmit
   proveedores?: Prisma.proveedoresOmit
+  user?: Prisma.userOmit
 }
 
 /* Types for Logging */

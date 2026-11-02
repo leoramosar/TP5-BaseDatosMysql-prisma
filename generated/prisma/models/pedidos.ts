@@ -30,12 +30,18 @@ export type PedidosAvgAggregateOutputType = {
   id: number | null
   id_cliente: number | null
   id_empleado: number | null
+  subtotal: runtime.Decimal | null
+  iva: runtime.Decimal | null
+  total: runtime.Decimal | null
 }
 
 export type PedidosSumAggregateOutputType = {
   id: number | null
   id_cliente: number | null
   id_empleado: number | null
+  subtotal: runtime.Decimal | null
+  iva: runtime.Decimal | null
+  total: runtime.Decimal | null
 }
 
 export type PedidosMinAggregateOutputType = {
@@ -44,6 +50,13 @@ export type PedidosMinAggregateOutputType = {
   id_cliente: number | null
   id_empleado: number | null
   estado: $Enums.pedidos_estado | null
+  numero_factura: string | null
+  fecha_factura: Date | null
+  subtotal: runtime.Decimal | null
+  iva: runtime.Decimal | null
+  total: runtime.Decimal | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type PedidosMaxAggregateOutputType = {
@@ -52,6 +65,13 @@ export type PedidosMaxAggregateOutputType = {
   id_cliente: number | null
   id_empleado: number | null
   estado: $Enums.pedidos_estado | null
+  numero_factura: string | null
+  fecha_factura: Date | null
+  subtotal: runtime.Decimal | null
+  iva: runtime.Decimal | null
+  total: runtime.Decimal | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type PedidosCountAggregateOutputType = {
@@ -60,6 +80,13 @@ export type PedidosCountAggregateOutputType = {
   id_cliente: number
   id_empleado: number
   estado: number
+  numero_factura: number
+  fecha_factura: number
+  subtotal: number
+  iva: number
+  total: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -68,12 +95,18 @@ export type PedidosAvgAggregateInputType = {
   id?: true
   id_cliente?: true
   id_empleado?: true
+  subtotal?: true
+  iva?: true
+  total?: true
 }
 
 export type PedidosSumAggregateInputType = {
   id?: true
   id_cliente?: true
   id_empleado?: true
+  subtotal?: true
+  iva?: true
+  total?: true
 }
 
 export type PedidosMinAggregateInputType = {
@@ -82,6 +115,13 @@ export type PedidosMinAggregateInputType = {
   id_cliente?: true
   id_empleado?: true
   estado?: true
+  numero_factura?: true
+  fecha_factura?: true
+  subtotal?: true
+  iva?: true
+  total?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type PedidosMaxAggregateInputType = {
@@ -90,6 +130,13 @@ export type PedidosMaxAggregateInputType = {
   id_cliente?: true
   id_empleado?: true
   estado?: true
+  numero_factura?: true
+  fecha_factura?: true
+  subtotal?: true
+  iva?: true
+  total?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type PedidosCountAggregateInputType = {
@@ -98,6 +145,13 @@ export type PedidosCountAggregateInputType = {
   id_cliente?: true
   id_empleado?: true
   estado?: true
+  numero_factura?: true
+  fecha_factura?: true
+  subtotal?: true
+  iva?: true
+  total?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -193,6 +247,13 @@ export type PedidosGroupByOutputType = {
   id_cliente: number
   id_empleado: number
   estado: $Enums.pedidos_estado
+  numero_factura: string | null
+  fecha_factura: Date | null
+  subtotal: runtime.Decimal | null
+  iva: runtime.Decimal | null
+  total: runtime.Decimal | null
+  createdAt: Date
+  updatedAt: Date
   _count: PedidosCountAggregateOutputType | null
   _avg: PedidosAvgAggregateOutputType | null
   _sum: PedidosSumAggregateOutputType | null
@@ -224,9 +285,15 @@ export type pedidosWhereInput = {
   id_cliente?: Prisma.IntFilter<"pedidos"> | number
   id_empleado?: Prisma.IntFilter<"pedidos"> | number
   estado?: Prisma.Enumpedidos_estadoFilter<"pedidos"> | $Enums.pedidos_estado
+  numero_factura?: Prisma.StringNullableFilter<"pedidos"> | string | null
+  fecha_factura?: Prisma.DateTimeNullableFilter<"pedidos"> | Date | string | null
+  subtotal?: Prisma.DecimalNullableFilter<"pedidos"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.DecimalNullableFilter<"pedidos"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.DecimalNullableFilter<"pedidos"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFilter<"pedidos"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"pedidos"> | Date | string
   detalle_pedido?: Prisma.Detalle_pedidoListRelationFilter
   envios?: Prisma.XOR<Prisma.EnviosNullableScalarRelationFilter, Prisma.enviosWhereInput> | null
-  facturas?: Prisma.XOR<Prisma.FacturasNullableScalarRelationFilter, Prisma.facturasWhereInput> | null
   clientes?: Prisma.XOR<Prisma.ClientesScalarRelationFilter, Prisma.clientesWhereInput>
   empleados?: Prisma.XOR<Prisma.EmpleadosScalarRelationFilter, Prisma.empleadosWhereInput>
 }
@@ -237,15 +304,23 @@ export type pedidosOrderByWithRelationInput = {
   id_cliente?: Prisma.SortOrder
   id_empleado?: Prisma.SortOrder
   estado?: Prisma.SortOrder
+  numero_factura?: Prisma.SortOrderInput | Prisma.SortOrder
+  fecha_factura?: Prisma.SortOrderInput | Prisma.SortOrder
+  subtotal?: Prisma.SortOrderInput | Prisma.SortOrder
+  iva?: Prisma.SortOrderInput | Prisma.SortOrder
+  total?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   detalle_pedido?: Prisma.detalle_pedidoOrderByRelationAggregateInput
   envios?: Prisma.enviosOrderByWithRelationInput
-  facturas?: Prisma.facturasOrderByWithRelationInput
   clientes?: Prisma.clientesOrderByWithRelationInput
   empleados?: Prisma.empleadosOrderByWithRelationInput
+  _relevance?: Prisma.pedidosOrderByRelevanceInput
 }
 
 export type pedidosWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  numero_factura?: string
   AND?: Prisma.pedidosWhereInput | Prisma.pedidosWhereInput[]
   OR?: Prisma.pedidosWhereInput[]
   NOT?: Prisma.pedidosWhereInput | Prisma.pedidosWhereInput[]
@@ -253,12 +328,17 @@ export type pedidosWhereUniqueInput = Prisma.AtLeast<{
   id_cliente?: Prisma.IntFilter<"pedidos"> | number
   id_empleado?: Prisma.IntFilter<"pedidos"> | number
   estado?: Prisma.Enumpedidos_estadoFilter<"pedidos"> | $Enums.pedidos_estado
+  fecha_factura?: Prisma.DateTimeNullableFilter<"pedidos"> | Date | string | null
+  subtotal?: Prisma.DecimalNullableFilter<"pedidos"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.DecimalNullableFilter<"pedidos"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.DecimalNullableFilter<"pedidos"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFilter<"pedidos"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"pedidos"> | Date | string
   detalle_pedido?: Prisma.Detalle_pedidoListRelationFilter
   envios?: Prisma.XOR<Prisma.EnviosNullableScalarRelationFilter, Prisma.enviosWhereInput> | null
-  facturas?: Prisma.XOR<Prisma.FacturasNullableScalarRelationFilter, Prisma.facturasWhereInput> | null
   clientes?: Prisma.XOR<Prisma.ClientesScalarRelationFilter, Prisma.clientesWhereInput>
   empleados?: Prisma.XOR<Prisma.EmpleadosScalarRelationFilter, Prisma.empleadosWhereInput>
-}, "id">
+}, "id" | "numero_factura">
 
 export type pedidosOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -266,6 +346,13 @@ export type pedidosOrderByWithAggregationInput = {
   id_cliente?: Prisma.SortOrder
   id_empleado?: Prisma.SortOrder
   estado?: Prisma.SortOrder
+  numero_factura?: Prisma.SortOrderInput | Prisma.SortOrder
+  fecha_factura?: Prisma.SortOrderInput | Prisma.SortOrder
+  subtotal?: Prisma.SortOrderInput | Prisma.SortOrder
+  iva?: Prisma.SortOrderInput | Prisma.SortOrder
+  total?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.pedidosCountOrderByAggregateInput
   _avg?: Prisma.pedidosAvgOrderByAggregateInput
   _max?: Prisma.pedidosMaxOrderByAggregateInput
@@ -282,14 +369,27 @@ export type pedidosScalarWhereWithAggregatesInput = {
   id_cliente?: Prisma.IntWithAggregatesFilter<"pedidos"> | number
   id_empleado?: Prisma.IntWithAggregatesFilter<"pedidos"> | number
   estado?: Prisma.Enumpedidos_estadoWithAggregatesFilter<"pedidos"> | $Enums.pedidos_estado
+  numero_factura?: Prisma.StringNullableWithAggregatesFilter<"pedidos"> | string | null
+  fecha_factura?: Prisma.DateTimeNullableWithAggregatesFilter<"pedidos"> | Date | string | null
+  subtotal?: Prisma.DecimalNullableWithAggregatesFilter<"pedidos"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.DecimalNullableWithAggregatesFilter<"pedidos"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.DecimalNullableWithAggregatesFilter<"pedidos"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"pedidos"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"pedidos"> | Date | string
 }
 
 export type pedidosCreateInput = {
   fecha: Date | string
   estado?: $Enums.pedidos_estado
+  numero_factura?: string | null
+  fecha_factura?: Date | string | null
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoCreateNestedManyWithoutPedidosInput
   envios?: Prisma.enviosCreateNestedOneWithoutPedidosInput
-  facturas?: Prisma.facturasCreateNestedOneWithoutPedidosInput
   clientes: Prisma.clientesCreateNestedOneWithoutPedidosInput
   empleados: Prisma.empleadosCreateNestedOneWithoutPedidosInput
 }
@@ -300,17 +400,29 @@ export type pedidosUncheckedCreateInput = {
   id_cliente: number
   id_empleado: number
   estado?: $Enums.pedidos_estado
+  numero_factura?: string | null
+  fecha_factura?: Date | string | null
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedCreateNestedManyWithoutPedidosInput
   envios?: Prisma.enviosUncheckedCreateNestedOneWithoutPedidosInput
-  facturas?: Prisma.facturasUncheckedCreateNestedOneWithoutPedidosInput
 }
 
 export type pedidosUpdateInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUpdateManyWithoutPedidosNestedInput
   envios?: Prisma.enviosUpdateOneWithoutPedidosNestedInput
-  facturas?: Prisma.facturasUpdateOneWithoutPedidosNestedInput
   clientes?: Prisma.clientesUpdateOneRequiredWithoutPedidosNestedInput
   empleados?: Prisma.empleadosUpdateOneRequiredWithoutPedidosNestedInput
 }
@@ -321,9 +433,15 @@ export type pedidosUncheckedUpdateInput = {
   id_cliente?: Prisma.IntFieldUpdateOperationsInput | number
   id_empleado?: Prisma.IntFieldUpdateOperationsInput | number
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedUpdateManyWithoutPedidosNestedInput
   envios?: Prisma.enviosUncheckedUpdateOneWithoutPedidosNestedInput
-  facturas?: Prisma.facturasUncheckedUpdateOneWithoutPedidosNestedInput
 }
 
 export type pedidosCreateManyInput = {
@@ -332,11 +450,25 @@ export type pedidosCreateManyInput = {
   id_cliente: number
   id_empleado: number
   estado?: $Enums.pedidos_estado
+  numero_factura?: string | null
+  fecha_factura?: Date | string | null
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type pedidosUpdateManyMutationInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type pedidosUncheckedUpdateManyInput = {
@@ -345,6 +477,13 @@ export type pedidosUncheckedUpdateManyInput = {
   id_cliente?: Prisma.IntFieldUpdateOperationsInput | number
   id_empleado?: Prisma.IntFieldUpdateOperationsInput | number
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PedidosListRelationFilter = {
@@ -362,18 +501,34 @@ export type PedidosScalarRelationFilter = {
   isNot?: Prisma.pedidosWhereInput
 }
 
+export type pedidosOrderByRelevanceInput = {
+  fields: Prisma.pedidosOrderByRelevanceFieldEnum | Prisma.pedidosOrderByRelevanceFieldEnum[]
+  sort: Prisma.SortOrder
+  search: string
+}
+
 export type pedidosCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   fecha?: Prisma.SortOrder
   id_cliente?: Prisma.SortOrder
   id_empleado?: Prisma.SortOrder
   estado?: Prisma.SortOrder
+  numero_factura?: Prisma.SortOrder
+  fecha_factura?: Prisma.SortOrder
+  subtotal?: Prisma.SortOrder
+  iva?: Prisma.SortOrder
+  total?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type pedidosAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   id_cliente?: Prisma.SortOrder
   id_empleado?: Prisma.SortOrder
+  subtotal?: Prisma.SortOrder
+  iva?: Prisma.SortOrder
+  total?: Prisma.SortOrder
 }
 
 export type pedidosMaxOrderByAggregateInput = {
@@ -382,6 +537,13 @@ export type pedidosMaxOrderByAggregateInput = {
   id_cliente?: Prisma.SortOrder
   id_empleado?: Prisma.SortOrder
   estado?: Prisma.SortOrder
+  numero_factura?: Prisma.SortOrder
+  fecha_factura?: Prisma.SortOrder
+  subtotal?: Prisma.SortOrder
+  iva?: Prisma.SortOrder
+  total?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type pedidosMinOrderByAggregateInput = {
@@ -390,12 +552,22 @@ export type pedidosMinOrderByAggregateInput = {
   id_cliente?: Prisma.SortOrder
   id_empleado?: Prisma.SortOrder
   estado?: Prisma.SortOrder
+  numero_factura?: Prisma.SortOrder
+  fecha_factura?: Prisma.SortOrder
+  subtotal?: Prisma.SortOrder
+  iva?: Prisma.SortOrder
+  total?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type pedidosSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   id_cliente?: Prisma.SortOrder
   id_empleado?: Prisma.SortOrder
+  subtotal?: Prisma.SortOrder
+  iva?: Prisma.SortOrder
+  total?: Prisma.SortOrder
 }
 
 export type pedidosCreateNestedManyWithoutClientesInput = {
@@ -510,30 +682,30 @@ export type pedidosUpdateOneRequiredWithoutEnviosNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.pedidosUpdateToOneWithWhereWithoutEnviosInput, Prisma.pedidosUpdateWithoutEnviosInput>, Prisma.pedidosUncheckedUpdateWithoutEnviosInput>
 }
 
-export type pedidosCreateNestedOneWithoutFacturasInput = {
-  create?: Prisma.XOR<Prisma.pedidosCreateWithoutFacturasInput, Prisma.pedidosUncheckedCreateWithoutFacturasInput>
-  connectOrCreate?: Prisma.pedidosCreateOrConnectWithoutFacturasInput
-  connect?: Prisma.pedidosWhereUniqueInput
-}
-
-export type pedidosUpdateOneRequiredWithoutFacturasNestedInput = {
-  create?: Prisma.XOR<Prisma.pedidosCreateWithoutFacturasInput, Prisma.pedidosUncheckedCreateWithoutFacturasInput>
-  connectOrCreate?: Prisma.pedidosCreateOrConnectWithoutFacturasInput
-  upsert?: Prisma.pedidosUpsertWithoutFacturasInput
-  connect?: Prisma.pedidosWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.pedidosUpdateToOneWithWhereWithoutFacturasInput, Prisma.pedidosUpdateWithoutFacturasInput>, Prisma.pedidosUncheckedUpdateWithoutFacturasInput>
-}
-
 export type Enumpedidos_estadoFieldUpdateOperationsInput = {
   set?: $Enums.pedidos_estado
+}
+
+export type NullableDecimalFieldUpdateOperationsInput = {
+  set?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  increment?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  decrement?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  multiply?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type pedidosCreateWithoutClientesInput = {
   fecha: Date | string
   estado?: $Enums.pedidos_estado
+  numero_factura?: string | null
+  fecha_factura?: Date | string | null
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoCreateNestedManyWithoutPedidosInput
   envios?: Prisma.enviosCreateNestedOneWithoutPedidosInput
-  facturas?: Prisma.facturasCreateNestedOneWithoutPedidosInput
   empleados: Prisma.empleadosCreateNestedOneWithoutPedidosInput
 }
 
@@ -542,9 +714,15 @@ export type pedidosUncheckedCreateWithoutClientesInput = {
   fecha: Date | string
   id_empleado: number
   estado?: $Enums.pedidos_estado
+  numero_factura?: string | null
+  fecha_factura?: Date | string | null
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedCreateNestedManyWithoutPedidosInput
   envios?: Prisma.enviosUncheckedCreateNestedOneWithoutPedidosInput
-  facturas?: Prisma.facturasUncheckedCreateNestedOneWithoutPedidosInput
 }
 
 export type pedidosCreateOrConnectWithoutClientesInput = {
@@ -582,13 +760,26 @@ export type pedidosScalarWhereInput = {
   id_cliente?: Prisma.IntFilter<"pedidos"> | number
   id_empleado?: Prisma.IntFilter<"pedidos"> | number
   estado?: Prisma.Enumpedidos_estadoFilter<"pedidos"> | $Enums.pedidos_estado
+  numero_factura?: Prisma.StringNullableFilter<"pedidos"> | string | null
+  fecha_factura?: Prisma.DateTimeNullableFilter<"pedidos"> | Date | string | null
+  subtotal?: Prisma.DecimalNullableFilter<"pedidos"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.DecimalNullableFilter<"pedidos"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.DecimalNullableFilter<"pedidos"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFilter<"pedidos"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"pedidos"> | Date | string
 }
 
 export type pedidosCreateWithoutDetalle_pedidoInput = {
   fecha: Date | string
   estado?: $Enums.pedidos_estado
+  numero_factura?: string | null
+  fecha_factura?: Date | string | null
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   envios?: Prisma.enviosCreateNestedOneWithoutPedidosInput
-  facturas?: Prisma.facturasCreateNestedOneWithoutPedidosInput
   clientes: Prisma.clientesCreateNestedOneWithoutPedidosInput
   empleados: Prisma.empleadosCreateNestedOneWithoutPedidosInput
 }
@@ -599,8 +790,14 @@ export type pedidosUncheckedCreateWithoutDetalle_pedidoInput = {
   id_cliente: number
   id_empleado: number
   estado?: $Enums.pedidos_estado
+  numero_factura?: string | null
+  fecha_factura?: Date | string | null
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   envios?: Prisma.enviosUncheckedCreateNestedOneWithoutPedidosInput
-  facturas?: Prisma.facturasUncheckedCreateNestedOneWithoutPedidosInput
 }
 
 export type pedidosCreateOrConnectWithoutDetalle_pedidoInput = {
@@ -622,8 +819,14 @@ export type pedidosUpdateToOneWithWhereWithoutDetalle_pedidoInput = {
 export type pedidosUpdateWithoutDetalle_pedidoInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   envios?: Prisma.enviosUpdateOneWithoutPedidosNestedInput
-  facturas?: Prisma.facturasUpdateOneWithoutPedidosNestedInput
   clientes?: Prisma.clientesUpdateOneRequiredWithoutPedidosNestedInput
   empleados?: Prisma.empleadosUpdateOneRequiredWithoutPedidosNestedInput
 }
@@ -634,16 +837,28 @@ export type pedidosUncheckedUpdateWithoutDetalle_pedidoInput = {
   id_cliente?: Prisma.IntFieldUpdateOperationsInput | number
   id_empleado?: Prisma.IntFieldUpdateOperationsInput | number
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   envios?: Prisma.enviosUncheckedUpdateOneWithoutPedidosNestedInput
-  facturas?: Prisma.facturasUncheckedUpdateOneWithoutPedidosNestedInput
 }
 
 export type pedidosCreateWithoutEmpleadosInput = {
   fecha: Date | string
   estado?: $Enums.pedidos_estado
+  numero_factura?: string | null
+  fecha_factura?: Date | string | null
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoCreateNestedManyWithoutPedidosInput
   envios?: Prisma.enviosCreateNestedOneWithoutPedidosInput
-  facturas?: Prisma.facturasCreateNestedOneWithoutPedidosInput
   clientes: Prisma.clientesCreateNestedOneWithoutPedidosInput
 }
 
@@ -652,9 +867,15 @@ export type pedidosUncheckedCreateWithoutEmpleadosInput = {
   fecha: Date | string
   id_cliente: number
   estado?: $Enums.pedidos_estado
+  numero_factura?: string | null
+  fecha_factura?: Date | string | null
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedCreateNestedManyWithoutPedidosInput
   envios?: Prisma.enviosUncheckedCreateNestedOneWithoutPedidosInput
-  facturas?: Prisma.facturasUncheckedCreateNestedOneWithoutPedidosInput
 }
 
 export type pedidosCreateOrConnectWithoutEmpleadosInput = {
@@ -686,8 +907,14 @@ export type pedidosUpdateManyWithWhereWithoutEmpleadosInput = {
 export type pedidosCreateWithoutEnviosInput = {
   fecha: Date | string
   estado?: $Enums.pedidos_estado
+  numero_factura?: string | null
+  fecha_factura?: Date | string | null
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoCreateNestedManyWithoutPedidosInput
-  facturas?: Prisma.facturasCreateNestedOneWithoutPedidosInput
   clientes: Prisma.clientesCreateNestedOneWithoutPedidosInput
   empleados: Prisma.empleadosCreateNestedOneWithoutPedidosInput
 }
@@ -698,8 +925,14 @@ export type pedidosUncheckedCreateWithoutEnviosInput = {
   id_cliente: number
   id_empleado: number
   estado?: $Enums.pedidos_estado
+  numero_factura?: string | null
+  fecha_factura?: Date | string | null
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedCreateNestedManyWithoutPedidosInput
-  facturas?: Prisma.facturasUncheckedCreateNestedOneWithoutPedidosInput
 }
 
 export type pedidosCreateOrConnectWithoutEnviosInput = {
@@ -721,8 +954,14 @@ export type pedidosUpdateToOneWithWhereWithoutEnviosInput = {
 export type pedidosUpdateWithoutEnviosInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUpdateManyWithoutPedidosNestedInput
-  facturas?: Prisma.facturasUpdateOneWithoutPedidosNestedInput
   clientes?: Prisma.clientesUpdateOneRequiredWithoutPedidosNestedInput
   empleados?: Prisma.empleadosUpdateOneRequiredWithoutPedidosNestedInput
 }
@@ -733,62 +972,14 @@ export type pedidosUncheckedUpdateWithoutEnviosInput = {
   id_cliente?: Prisma.IntFieldUpdateOperationsInput | number
   id_empleado?: Prisma.IntFieldUpdateOperationsInput | number
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedUpdateManyWithoutPedidosNestedInput
-  facturas?: Prisma.facturasUncheckedUpdateOneWithoutPedidosNestedInput
-}
-
-export type pedidosCreateWithoutFacturasInput = {
-  fecha: Date | string
-  estado?: $Enums.pedidos_estado
-  detalle_pedido?: Prisma.detalle_pedidoCreateNestedManyWithoutPedidosInput
-  envios?: Prisma.enviosCreateNestedOneWithoutPedidosInput
-  clientes: Prisma.clientesCreateNestedOneWithoutPedidosInput
-  empleados: Prisma.empleadosCreateNestedOneWithoutPedidosInput
-}
-
-export type pedidosUncheckedCreateWithoutFacturasInput = {
-  id?: number
-  fecha: Date | string
-  id_cliente: number
-  id_empleado: number
-  estado?: $Enums.pedidos_estado
-  detalle_pedido?: Prisma.detalle_pedidoUncheckedCreateNestedManyWithoutPedidosInput
-  envios?: Prisma.enviosUncheckedCreateNestedOneWithoutPedidosInput
-}
-
-export type pedidosCreateOrConnectWithoutFacturasInput = {
-  where: Prisma.pedidosWhereUniqueInput
-  create: Prisma.XOR<Prisma.pedidosCreateWithoutFacturasInput, Prisma.pedidosUncheckedCreateWithoutFacturasInput>
-}
-
-export type pedidosUpsertWithoutFacturasInput = {
-  update: Prisma.XOR<Prisma.pedidosUpdateWithoutFacturasInput, Prisma.pedidosUncheckedUpdateWithoutFacturasInput>
-  create: Prisma.XOR<Prisma.pedidosCreateWithoutFacturasInput, Prisma.pedidosUncheckedCreateWithoutFacturasInput>
-  where?: Prisma.pedidosWhereInput
-}
-
-export type pedidosUpdateToOneWithWhereWithoutFacturasInput = {
-  where?: Prisma.pedidosWhereInput
-  data: Prisma.XOR<Prisma.pedidosUpdateWithoutFacturasInput, Prisma.pedidosUncheckedUpdateWithoutFacturasInput>
-}
-
-export type pedidosUpdateWithoutFacturasInput = {
-  fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
-  detalle_pedido?: Prisma.detalle_pedidoUpdateManyWithoutPedidosNestedInput
-  envios?: Prisma.enviosUpdateOneWithoutPedidosNestedInput
-  clientes?: Prisma.clientesUpdateOneRequiredWithoutPedidosNestedInput
-  empleados?: Prisma.empleadosUpdateOneRequiredWithoutPedidosNestedInput
-}
-
-export type pedidosUncheckedUpdateWithoutFacturasInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  id_cliente?: Prisma.IntFieldUpdateOperationsInput | number
-  id_empleado?: Prisma.IntFieldUpdateOperationsInput | number
-  estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
-  detalle_pedido?: Prisma.detalle_pedidoUncheckedUpdateManyWithoutPedidosNestedInput
-  envios?: Prisma.enviosUncheckedUpdateOneWithoutPedidosNestedInput
 }
 
 export type pedidosCreateManyClientesInput = {
@@ -796,14 +987,27 @@ export type pedidosCreateManyClientesInput = {
   fecha: Date | string
   id_empleado: number
   estado?: $Enums.pedidos_estado
+  numero_factura?: string | null
+  fecha_factura?: Date | string | null
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type pedidosUpdateWithoutClientesInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUpdateManyWithoutPedidosNestedInput
   envios?: Prisma.enviosUpdateOneWithoutPedidosNestedInput
-  facturas?: Prisma.facturasUpdateOneWithoutPedidosNestedInput
   empleados?: Prisma.empleadosUpdateOneRequiredWithoutPedidosNestedInput
 }
 
@@ -812,9 +1016,15 @@ export type pedidosUncheckedUpdateWithoutClientesInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   id_empleado?: Prisma.IntFieldUpdateOperationsInput | number
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedUpdateManyWithoutPedidosNestedInput
   envios?: Prisma.enviosUncheckedUpdateOneWithoutPedidosNestedInput
-  facturas?: Prisma.facturasUncheckedUpdateOneWithoutPedidosNestedInput
 }
 
 export type pedidosUncheckedUpdateManyWithoutClientesInput = {
@@ -822,6 +1032,13 @@ export type pedidosUncheckedUpdateManyWithoutClientesInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   id_empleado?: Prisma.IntFieldUpdateOperationsInput | number
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type pedidosCreateManyEmpleadosInput = {
@@ -829,14 +1046,27 @@ export type pedidosCreateManyEmpleadosInput = {
   fecha: Date | string
   id_cliente: number
   estado?: $Enums.pedidos_estado
+  numero_factura?: string | null
+  fecha_factura?: Date | string | null
+  subtotal?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type pedidosUpdateWithoutEmpleadosInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUpdateManyWithoutPedidosNestedInput
   envios?: Prisma.enviosUpdateOneWithoutPedidosNestedInput
-  facturas?: Prisma.facturasUpdateOneWithoutPedidosNestedInput
   clientes?: Prisma.clientesUpdateOneRequiredWithoutPedidosNestedInput
 }
 
@@ -845,9 +1075,15 @@ export type pedidosUncheckedUpdateWithoutEmpleadosInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   id_cliente?: Prisma.IntFieldUpdateOperationsInput | number
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   detalle_pedido?: Prisma.detalle_pedidoUncheckedUpdateManyWithoutPedidosNestedInput
   envios?: Prisma.enviosUncheckedUpdateOneWithoutPedidosNestedInput
-  facturas?: Prisma.facturasUncheckedUpdateOneWithoutPedidosNestedInput
 }
 
 export type pedidosUncheckedUpdateManyWithoutEmpleadosInput = {
@@ -855,6 +1091,13 @@ export type pedidosUncheckedUpdateManyWithoutEmpleadosInput = {
   fecha?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   id_cliente?: Prisma.IntFieldUpdateOperationsInput | number
   estado?: Prisma.Enumpedidos_estadoFieldUpdateOperationsInput | $Enums.pedidos_estado
+  numero_factura?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fecha_factura?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  subtotal?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  iva?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  total?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -894,9 +1137,15 @@ export type pedidosSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   id_cliente?: boolean
   id_empleado?: boolean
   estado?: boolean
+  numero_factura?: boolean
+  fecha_factura?: boolean
+  subtotal?: boolean
+  iva?: boolean
+  total?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   detalle_pedido?: boolean | Prisma.pedidos$detalle_pedidoArgs<ExtArgs>
   envios?: boolean | Prisma.pedidos$enviosArgs<ExtArgs>
-  facturas?: boolean | Prisma.pedidos$facturasArgs<ExtArgs>
   clientes?: boolean | Prisma.clientesDefaultArgs<ExtArgs>
   empleados?: boolean | Prisma.empleadosDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.PedidosCountOutputTypeDefaultArgs<ExtArgs>
@@ -910,13 +1159,19 @@ export type pedidosSelectScalar = {
   id_cliente?: boolean
   id_empleado?: boolean
   estado?: boolean
+  numero_factura?: boolean
+  fecha_factura?: boolean
+  subtotal?: boolean
+  iva?: boolean
+  total?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type pedidosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fecha" | "id_cliente" | "id_empleado" | "estado", ExtArgs["result"]["pedidos"]>
+export type pedidosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fecha" | "id_cliente" | "id_empleado" | "estado" | "numero_factura" | "fecha_factura" | "subtotal" | "iva" | "total" | "createdAt" | "updatedAt", ExtArgs["result"]["pedidos"]>
 export type pedidosInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   detalle_pedido?: boolean | Prisma.pedidos$detalle_pedidoArgs<ExtArgs>
   envios?: boolean | Prisma.pedidos$enviosArgs<ExtArgs>
-  facturas?: boolean | Prisma.pedidos$facturasArgs<ExtArgs>
   clientes?: boolean | Prisma.clientesDefaultArgs<ExtArgs>
   empleados?: boolean | Prisma.empleadosDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.PedidosCountOutputTypeDefaultArgs<ExtArgs>
@@ -927,7 +1182,6 @@ export type $pedidosPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   objects: {
     detalle_pedido: Prisma.$detalle_pedidoPayload<ExtArgs>[]
     envios: Prisma.$enviosPayload<ExtArgs> | null
-    facturas: Prisma.$facturasPayload<ExtArgs> | null
     clientes: Prisma.$clientesPayload<ExtArgs>
     empleados: Prisma.$empleadosPayload<ExtArgs>
   }
@@ -937,6 +1191,13 @@ export type $pedidosPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     id_cliente: number
     id_empleado: number
     estado: $Enums.pedidos_estado
+    numero_factura: string | null
+    fecha_factura: Date | null
+    subtotal: runtime.Decimal | null
+    iva: runtime.Decimal | null
+    total: runtime.Decimal | null
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["pedidos"]>
   composites: {}
 }
@@ -1279,7 +1540,6 @@ export interface Prisma__pedidosClient<T, Null = never, ExtArgs extends runtime.
   readonly [Symbol.toStringTag]: "PrismaPromise"
   detalle_pedido<T extends Prisma.pedidos$detalle_pedidoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pedidos$detalle_pedidoArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$detalle_pedidoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   envios<T extends Prisma.pedidos$enviosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pedidos$enviosArgs<ExtArgs>>): Prisma.Prisma__enviosClient<runtime.Types.Result.GetResult<Prisma.$enviosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  facturas<T extends Prisma.pedidos$facturasArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.pedidos$facturasArgs<ExtArgs>>): Prisma.Prisma__facturasClient<runtime.Types.Result.GetResult<Prisma.$facturasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   clientes<T extends Prisma.clientesDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.clientesDefaultArgs<ExtArgs>>): Prisma.Prisma__clientesClient<runtime.Types.Result.GetResult<Prisma.$clientesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   empleados<T extends Prisma.empleadosDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.empleadosDefaultArgs<ExtArgs>>): Prisma.Prisma__empleadosClient<runtime.Types.Result.GetResult<Prisma.$empleadosPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
@@ -1316,6 +1576,13 @@ export interface pedidosFieldRefs {
   readonly id_cliente: Prisma.FieldRef<"pedidos", 'Int'>
   readonly id_empleado: Prisma.FieldRef<"pedidos", 'Int'>
   readonly estado: Prisma.FieldRef<"pedidos", 'pedidos_estado'>
+  readonly numero_factura: Prisma.FieldRef<"pedidos", 'String'>
+  readonly fecha_factura: Prisma.FieldRef<"pedidos", 'DateTime'>
+  readonly subtotal: Prisma.FieldRef<"pedidos", 'Decimal'>
+  readonly iva: Prisma.FieldRef<"pedidos", 'Decimal'>
+  readonly total: Prisma.FieldRef<"pedidos", 'Decimal'>
+  readonly createdAt: Prisma.FieldRef<"pedidos", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"pedidos", 'DateTime'>
 }
     
 
@@ -1704,25 +1971,6 @@ export type pedidos$enviosArgs<ExtArgs extends runtime.Types.Extensions.Internal
    */
   include?: Prisma.enviosInclude<ExtArgs> | null
   where?: Prisma.enviosWhereInput
-}
-
-/**
- * pedidos.facturas
- */
-export type pedidos$facturasArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the facturas
-   */
-  select?: Prisma.facturasSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the facturas
-   */
-  omit?: Prisma.facturasOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.facturasInclude<ExtArgs> | null
-  where?: Prisma.facturasWhereInput
 }
 
 /**

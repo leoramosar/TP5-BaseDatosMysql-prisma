@@ -41,6 +41,8 @@ export type Companias_enviosMinAggregateOutputType = {
   nombre: string | null
   telefono: string | null
   costo_base: runtime.Decimal | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type Companias_enviosMaxAggregateOutputType = {
@@ -48,6 +50,8 @@ export type Companias_enviosMaxAggregateOutputType = {
   nombre: string | null
   telefono: string | null
   costo_base: runtime.Decimal | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type Companias_enviosCountAggregateOutputType = {
@@ -55,6 +59,8 @@ export type Companias_enviosCountAggregateOutputType = {
   nombre: number
   telefono: number
   costo_base: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -74,6 +80,8 @@ export type Companias_enviosMinAggregateInputType = {
   nombre?: true
   telefono?: true
   costo_base?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type Companias_enviosMaxAggregateInputType = {
@@ -81,6 +89,8 @@ export type Companias_enviosMaxAggregateInputType = {
   nombre?: true
   telefono?: true
   costo_base?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type Companias_enviosCountAggregateInputType = {
@@ -88,6 +98,8 @@ export type Companias_enviosCountAggregateInputType = {
   nombre?: true
   telefono?: true
   costo_base?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -182,6 +194,8 @@ export type Companias_enviosGroupByOutputType = {
   nombre: string
   telefono: string | null
   costo_base: runtime.Decimal
+  createdAt: Date
+  updatedAt: Date
   _count: Companias_enviosCountAggregateOutputType | null
   _avg: Companias_enviosAvgAggregateOutputType | null
   _sum: Companias_enviosSumAggregateOutputType | null
@@ -212,6 +226,8 @@ export type companias_enviosWhereInput = {
   nombre?: Prisma.StringFilter<"companias_envios"> | string
   telefono?: Prisma.StringNullableFilter<"companias_envios"> | string | null
   costo_base?: Prisma.DecimalFilter<"companias_envios"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFilter<"companias_envios"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"companias_envios"> | Date | string
   envios?: Prisma.EnviosListRelationFilter
 }
 
@@ -220,6 +236,8 @@ export type companias_enviosOrderByWithRelationInput = {
   nombre?: Prisma.SortOrder
   telefono?: Prisma.SortOrderInput | Prisma.SortOrder
   costo_base?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   envios?: Prisma.enviosOrderByRelationAggregateInput
   _relevance?: Prisma.companias_enviosOrderByRelevanceInput
 }
@@ -232,6 +250,8 @@ export type companias_enviosWhereUniqueInput = Prisma.AtLeast<{
   nombre?: Prisma.StringFilter<"companias_envios"> | string
   telefono?: Prisma.StringNullableFilter<"companias_envios"> | string | null
   costo_base?: Prisma.DecimalFilter<"companias_envios"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFilter<"companias_envios"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"companias_envios"> | Date | string
   envios?: Prisma.EnviosListRelationFilter
 }, "id">
 
@@ -240,6 +260,8 @@ export type companias_enviosOrderByWithAggregationInput = {
   nombre?: Prisma.SortOrder
   telefono?: Prisma.SortOrderInput | Prisma.SortOrder
   costo_base?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.companias_enviosCountOrderByAggregateInput
   _avg?: Prisma.companias_enviosAvgOrderByAggregateInput
   _max?: Prisma.companias_enviosMaxOrderByAggregateInput
@@ -255,12 +277,16 @@ export type companias_enviosScalarWhereWithAggregatesInput = {
   nombre?: Prisma.StringWithAggregatesFilter<"companias_envios"> | string
   telefono?: Prisma.StringNullableWithAggregatesFilter<"companias_envios"> | string | null
   costo_base?: Prisma.DecimalWithAggregatesFilter<"companias_envios"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"companias_envios"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"companias_envios"> | Date | string
 }
 
 export type companias_enviosCreateInput = {
   nombre: string
   telefono?: string | null
   costo_base: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
   envios?: Prisma.enviosCreateNestedManyWithoutCompanias_enviosInput
 }
 
@@ -269,6 +295,8 @@ export type companias_enviosUncheckedCreateInput = {
   nombre: string
   telefono?: string | null
   costo_base: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
   envios?: Prisma.enviosUncheckedCreateNestedManyWithoutCompanias_enviosInput
 }
 
@@ -276,6 +304,8 @@ export type companias_enviosUpdateInput = {
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costo_base?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   envios?: Prisma.enviosUpdateManyWithoutCompanias_enviosNestedInput
 }
 
@@ -284,6 +314,8 @@ export type companias_enviosUncheckedUpdateInput = {
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costo_base?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   envios?: Prisma.enviosUncheckedUpdateManyWithoutCompanias_enviosNestedInput
 }
 
@@ -292,12 +324,16 @@ export type companias_enviosCreateManyInput = {
   nombre: string
   telefono?: string | null
   costo_base: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type companias_enviosUpdateManyMutationInput = {
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costo_base?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type companias_enviosUncheckedUpdateManyInput = {
@@ -305,6 +341,8 @@ export type companias_enviosUncheckedUpdateManyInput = {
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costo_base?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type companias_enviosOrderByRelevanceInput = {
@@ -318,6 +356,8 @@ export type companias_enviosCountOrderByAggregateInput = {
   nombre?: Prisma.SortOrder
   telefono?: Prisma.SortOrder
   costo_base?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type companias_enviosAvgOrderByAggregateInput = {
@@ -330,6 +370,8 @@ export type companias_enviosMaxOrderByAggregateInput = {
   nombre?: Prisma.SortOrder
   telefono?: Prisma.SortOrder
   costo_base?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type companias_enviosMinOrderByAggregateInput = {
@@ -337,6 +379,8 @@ export type companias_enviosMinOrderByAggregateInput = {
   nombre?: Prisma.SortOrder
   telefono?: Prisma.SortOrder
   costo_base?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type companias_enviosSumOrderByAggregateInput = {
@@ -375,6 +419,8 @@ export type companias_enviosCreateWithoutEnviosInput = {
   nombre: string
   telefono?: string | null
   costo_base: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type companias_enviosUncheckedCreateWithoutEnviosInput = {
@@ -382,6 +428,8 @@ export type companias_enviosUncheckedCreateWithoutEnviosInput = {
   nombre: string
   telefono?: string | null
   costo_base: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type companias_enviosCreateOrConnectWithoutEnviosInput = {
@@ -404,6 +452,8 @@ export type companias_enviosUpdateWithoutEnviosInput = {
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costo_base?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type companias_enviosUncheckedUpdateWithoutEnviosInput = {
@@ -411,6 +461,8 @@ export type companias_enviosUncheckedUpdateWithoutEnviosInput = {
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
   telefono?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   costo_base?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -449,6 +501,8 @@ export type companias_enviosSelect<ExtArgs extends runtime.Types.Extensions.Inte
   nombre?: boolean
   telefono?: boolean
   costo_base?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   envios?: boolean | Prisma.companias_envios$enviosArgs<ExtArgs>
   _count?: boolean | Prisma.Companias_enviosCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["companias_envios"]>
@@ -460,9 +514,11 @@ export type companias_enviosSelectScalar = {
   nombre?: boolean
   telefono?: boolean
   costo_base?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type companias_enviosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "telefono" | "costo_base", ExtArgs["result"]["companias_envios"]>
+export type companias_enviosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "telefono" | "costo_base" | "createdAt" | "updatedAt", ExtArgs["result"]["companias_envios"]>
 export type companias_enviosInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   envios?: boolean | Prisma.companias_envios$enviosArgs<ExtArgs>
   _count?: boolean | Prisma.Companias_enviosCountOutputTypeDefaultArgs<ExtArgs>
@@ -478,6 +534,8 @@ export type $companias_enviosPayload<ExtArgs extends runtime.Types.Extensions.In
     nombre: string
     telefono: string | null
     costo_base: runtime.Decimal
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["companias_envios"]>
   composites: {}
 }
@@ -852,6 +910,8 @@ export interface companias_enviosFieldRefs {
   readonly nombre: Prisma.FieldRef<"companias_envios", 'String'>
   readonly telefono: Prisma.FieldRef<"companias_envios", 'String'>
   readonly costo_base: Prisma.FieldRef<"companias_envios", 'Decimal'>
+  readonly createdAt: Prisma.FieldRef<"companias_envios", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"companias_envios", 'DateTime'>
 }
     
 

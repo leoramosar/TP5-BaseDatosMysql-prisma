@@ -48,11 +48,6 @@ export type empleados = Prisma.empleadosModel
  */
 export type envios = Prisma.enviosModel
 /**
- * Model facturas
- * 
- */
-export type facturas = Prisma.facturasModel
-/**
  * Model pedidos
  * 
  */
@@ -67,3 +62,8 @@ export type productos = Prisma.productosModel
  * 
  */
 export type proveedores = Prisma.proveedoresModel
+/**
+ * Model user
+ * 
+ */
+export type user = Prisma.userModel

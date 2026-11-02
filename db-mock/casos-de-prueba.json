@@ -280,7 +280,7 @@
     {
       "descripcion": "Filtrar pedidos por estado",
       "metodo": "GET",
-      "url": "http://localhost:3000/pedidos?estado=entregado",
+      "url": "http://localhost:3000/pedidos?estado=pendiente",
       "body": null,
       "respuesta_esperada": 200
     },
@@ -318,7 +318,7 @@
       "respuesta_esperada": 201
     },
     {
-      "descripcion": "Agregar producto al detalle del pedido",
+      "descripcion": "Agregar producto al detalle del pedido (Prisma upsert)",
       "metodo": "POST",
       "url": "http://localhost:3000/pedidos/1/detalle",
       "body": {
@@ -329,6 +329,17 @@
       "respuesta_esperada": 201
     },
     {
+      "descripcion": "Validación: error al agregar cantidad negativa",
+      "metodo": "POST",
+      "url": "http://localhost:3000/pedidos/1/detalle",
+      "body": {
+        "id_producto": 2,
+        "cantidad": -5,
+        "precio_unitario": 1200
+      },
+      "respuesta_esperada": 400
+    },
+    {
       "descripcion": "Actualizar pedido",
       "metodo": "PUT",
       "url": "http://localhost:3000/pedidos/2",
@@ -336,7 +347,7 @@
         "fecha": "2025-06-05T00:00:00.000Z",
         "id_cliente": 2,
         "id_empleado": 2,
-        "estado": "entregado"
+        "estado": "confirmado"
       },
       "respuesta_esperada": 200
     },
@@ -344,63 +355,6 @@
       "descripcion": "Eliminar pedido",
       "metodo": "DELETE",
       "url": "http://localhost:3000/pedidos/3",
-      "body": null,
-      "respuesta_esperada": 200
-    }
-  ],
-
-  "facturas": [
-    {
-      "descripcion": "Listar facturas con JOIN (Prisma include de pedidos y clientes)",
-      "metodo": "GET",
-      "url": "http://localhost:3000/facturas",
-      "body": null,
-      "respuesta_esperada": 200
-    },
-    {
-      "descripcion": "Obtener factura por ID",
-      "metodo": "GET",
-      "url": "http://localhost:3000/facturas/1",
-      "body": null,
-      "respuesta_esperada": 200
-    },
-    {
-      "descripcion": "Agregación: IVA recaudado por mes (Prisma $queryRaw - SQL puro)",
-      "metodo": "GET",
-      "url": "http://localhost:3000/facturas/iva-por-mes",
-      "body": null,
-      "respuesta_esperada": 200
-    },
-    {
-      "descripcion": "Crear factura",
-      "metodo": "POST",
-      "url": "http://localhost:3000/facturas",
-      "body": {
-        "numero": "A-0001-00000002",
-        "fecha": "2025-06-05T00:00:00.000Z",
-        "subtotal": 21000,
-        "iva": 4410,
-        "total": 25410,
-        "id_pedido": 2
-      },
-      "respuesta_esperada": 201
-    },
-    {
-      "descripcion": "Actualizar factura",
-      "metodo": "PUT",
-      "url": "http://localhost:3000/facturas/1",
-      "body": {
-        "numero": "A-0001-00000001",
-        "subtotal": 53000,
-        "iva": 11130,
-        "total": 64130
-      },
-      "respuesta_esperada": 200
-    },
-    {
-      "descripcion": "Eliminar factura",
-      "metodo": "DELETE",
-      "url": "http://localhost:3000/facturas/2",
       "body": null,
       "respuesta_esperada": 200
     }
@@ -513,6 +467,58 @@
       "url": "http://localhost:3000/envios/999",
       "body": null,
       "respuesta_esperada": 404
+    }
+  ],
+
+  "usuarios": [
+    {
+      "descripcion": "Registro exitoso de usuario (Prisma create + bcrypt hash)",
+      "metodo": "POST",
+      "url": "http://localhost:3000/usuarios/register",
+      "body": {
+        "nombre": "Emmanuel",
+        "email": "emmanuel@test.com",
+        "password": "password123"
+      },
+      "respuesta_esperada": 201
+    },
+    {
+      "descripcion": "Registro fallido por email duplicado (Validación UNIQUE)",
+      "metodo": "POST",
+      "url": "http://localhost:3000/usuarios/register",
+      "body": {
+        "nombre": "Otro Usuario",
+        "email": "emmanuel@test.com",
+        "password": "password123"
+      },
+      "respuesta_esperada": 400
+    },
+    {
+      "descripcion": "Login exitoso (Devuelve Token JWT)",
+      "metodo": "POST",
+      "url": "http://localhost:3000/usuarios/login",
+      "body": {
+        "email": "emmanuel@test.com",
+        "password": "password123"
+      },
+      "respuesta_esperada": 200
+    },
+    {
+      "descripcion": "Login fallido por contraseña incorrecta",
+      "metodo": "POST",
+      "url": "http://localhost:3000/usuarios/login",
+      "body": {
+        "email": "emmanuel@test.com",
+        "password": "clave_incorrecta"
+      },
+      "respuesta_esperada": 401
+    },
+    {
+      "descripcion": "Acceso a ruta protegida sin token (Middleware JWT)",
+      "metodo": "GET",
+      "url": "http://localhost:3000/clientes",
+      "body": null,
+      "respuesta_esperada": 401
     }
   ]
 }

@@ -45,6 +45,8 @@ export type EnviosMinAggregateOutputType = {
   direccion: string | null
   fecha_envio: Date | null
   estado: $Enums.envios_estado | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type EnviosMaxAggregateOutputType = {
@@ -54,6 +56,8 @@ export type EnviosMaxAggregateOutputType = {
   direccion: string | null
   fecha_envio: Date | null
   estado: $Enums.envios_estado | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type EnviosCountAggregateOutputType = {
@@ -63,6 +67,8 @@ export type EnviosCountAggregateOutputType = {
   direccion: number
   fecha_envio: number
   estado: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -86,6 +92,8 @@ export type EnviosMinAggregateInputType = {
   direccion?: true
   fecha_envio?: true
   estado?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type EnviosMaxAggregateInputType = {
@@ -95,6 +103,8 @@ export type EnviosMaxAggregateInputType = {
   direccion?: true
   fecha_envio?: true
   estado?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type EnviosCountAggregateInputType = {
@@ -104,6 +114,8 @@ export type EnviosCountAggregateInputType = {
   direccion?: true
   fecha_envio?: true
   estado?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -200,6 +212,8 @@ export type EnviosGroupByOutputType = {
   direccion: string
   fecha_envio: Date | null
   estado: $Enums.envios_estado
+  createdAt: Date
+  updatedAt: Date
   _count: EnviosCountAggregateOutputType | null
   _avg: EnviosAvgAggregateOutputType | null
   _sum: EnviosSumAggregateOutputType | null
@@ -232,6 +246,8 @@ export type enviosWhereInput = {
   direccion?: Prisma.StringFilter<"envios"> | string
   fecha_envio?: Prisma.DateTimeNullableFilter<"envios"> | Date | string | null
   estado?: Prisma.Enumenvios_estadoFilter<"envios"> | $Enums.envios_estado
+  createdAt?: Prisma.DateTimeFilter<"envios"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"envios"> | Date | string
   pedidos?: Prisma.XOR<Prisma.PedidosScalarRelationFilter, Prisma.pedidosWhereInput>
   companias_envios?: Prisma.XOR<Prisma.Companias_enviosScalarRelationFilter, Prisma.companias_enviosWhereInput>
 }
@@ -243,6 +259,8 @@ export type enviosOrderByWithRelationInput = {
   direccion?: Prisma.SortOrder
   fecha_envio?: Prisma.SortOrderInput | Prisma.SortOrder
   estado?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   pedidos?: Prisma.pedidosOrderByWithRelationInput
   companias_envios?: Prisma.companias_enviosOrderByWithRelationInput
   _relevance?: Prisma.enviosOrderByRelevanceInput
@@ -258,6 +276,8 @@ export type enviosWhereUniqueInput = Prisma.AtLeast<{
   direccion?: Prisma.StringFilter<"envios"> | string
   fecha_envio?: Prisma.DateTimeNullableFilter<"envios"> | Date | string | null
   estado?: Prisma.Enumenvios_estadoFilter<"envios"> | $Enums.envios_estado
+  createdAt?: Prisma.DateTimeFilter<"envios"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"envios"> | Date | string
   pedidos?: Prisma.XOR<Prisma.PedidosScalarRelationFilter, Prisma.pedidosWhereInput>
   companias_envios?: Prisma.XOR<Prisma.Companias_enviosScalarRelationFilter, Prisma.companias_enviosWhereInput>
 }, "id" | "id_pedido">
@@ -269,6 +289,8 @@ export type enviosOrderByWithAggregationInput = {
   direccion?: Prisma.SortOrder
   fecha_envio?: Prisma.SortOrderInput | Prisma.SortOrder
   estado?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.enviosCountOrderByAggregateInput
   _avg?: Prisma.enviosAvgOrderByAggregateInput
   _max?: Prisma.enviosMaxOrderByAggregateInput
@@ -286,12 +308,16 @@ export type enviosScalarWhereWithAggregatesInput = {
   direccion?: Prisma.StringWithAggregatesFilter<"envios"> | string
   fecha_envio?: Prisma.DateTimeNullableWithAggregatesFilter<"envios"> | Date | string | null
   estado?: Prisma.Enumenvios_estadoWithAggregatesFilter<"envios"> | $Enums.envios_estado
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"envios"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"envios"> | Date | string
 }
 
 export type enviosCreateInput = {
   direccion: string
   fecha_envio?: Date | string | null
   estado?: $Enums.envios_estado
+  createdAt?: Date | string
+  updatedAt?: Date | string
   pedidos: Prisma.pedidosCreateNestedOneWithoutEnviosInput
   companias_envios: Prisma.companias_enviosCreateNestedOneWithoutEnviosInput
 }
@@ -303,12 +329,16 @@ export type enviosUncheckedCreateInput = {
   direccion: string
   fecha_envio?: Date | string | null
   estado?: $Enums.envios_estado
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type enviosUpdateInput = {
   direccion?: Prisma.StringFieldUpdateOperationsInput | string
   fecha_envio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   estado?: Prisma.Enumenvios_estadoFieldUpdateOperationsInput | $Enums.envios_estado
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pedidos?: Prisma.pedidosUpdateOneRequiredWithoutEnviosNestedInput
   companias_envios?: Prisma.companias_enviosUpdateOneRequiredWithoutEnviosNestedInput
 }
@@ -320,6 +350,8 @@ export type enviosUncheckedUpdateInput = {
   direccion?: Prisma.StringFieldUpdateOperationsInput | string
   fecha_envio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   estado?: Prisma.Enumenvios_estadoFieldUpdateOperationsInput | $Enums.envios_estado
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type enviosCreateManyInput = {
@@ -329,12 +361,16 @@ export type enviosCreateManyInput = {
   direccion: string
   fecha_envio?: Date | string | null
   estado?: $Enums.envios_estado
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type enviosUpdateManyMutationInput = {
   direccion?: Prisma.StringFieldUpdateOperationsInput | string
   fecha_envio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   estado?: Prisma.Enumenvios_estadoFieldUpdateOperationsInput | $Enums.envios_estado
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type enviosUncheckedUpdateManyInput = {
@@ -344,6 +380,8 @@ export type enviosUncheckedUpdateManyInput = {
   direccion?: Prisma.StringFieldUpdateOperationsInput | string
   fecha_envio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   estado?: Prisma.Enumenvios_estadoFieldUpdateOperationsInput | $Enums.envios_estado
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EnviosListRelationFilter = {
@@ -369,6 +407,8 @@ export type enviosCountOrderByAggregateInput = {
   direccion?: Prisma.SortOrder
   fecha_envio?: Prisma.SortOrder
   estado?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type enviosAvgOrderByAggregateInput = {
@@ -384,6 +424,8 @@ export type enviosMaxOrderByAggregateInput = {
   direccion?: Prisma.SortOrder
   fecha_envio?: Prisma.SortOrder
   estado?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type enviosMinOrderByAggregateInput = {
@@ -393,6 +435,8 @@ export type enviosMinOrderByAggregateInput = {
   direccion?: Prisma.SortOrder
   fecha_envio?: Prisma.SortOrder
   estado?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type enviosSumOrderByAggregateInput = {
@@ -492,6 +536,8 @@ export type enviosCreateWithoutCompanias_enviosInput = {
   direccion: string
   fecha_envio?: Date | string | null
   estado?: $Enums.envios_estado
+  createdAt?: Date | string
+  updatedAt?: Date | string
   pedidos: Prisma.pedidosCreateNestedOneWithoutEnviosInput
 }
 
@@ -501,6 +547,8 @@ export type enviosUncheckedCreateWithoutCompanias_enviosInput = {
   direccion: string
   fecha_envio?: Date | string | null
   estado?: $Enums.envios_estado
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type enviosCreateOrConnectWithoutCompanias_enviosInput = {
@@ -539,12 +587,16 @@ export type enviosScalarWhereInput = {
   direccion?: Prisma.StringFilter<"envios"> | string
   fecha_envio?: Prisma.DateTimeNullableFilter<"envios"> | Date | string | null
   estado?: Prisma.Enumenvios_estadoFilter<"envios"> | $Enums.envios_estado
+  createdAt?: Prisma.DateTimeFilter<"envios"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"envios"> | Date | string
 }
 
 export type enviosCreateWithoutPedidosInput = {
   direccion: string
   fecha_envio?: Date | string | null
   estado?: $Enums.envios_estado
+  createdAt?: Date | string
+  updatedAt?: Date | string
   companias_envios: Prisma.companias_enviosCreateNestedOneWithoutEnviosInput
 }
 
@@ -554,6 +606,8 @@ export type enviosUncheckedCreateWithoutPedidosInput = {
   direccion: string
   fecha_envio?: Date | string | null
   estado?: $Enums.envios_estado
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type enviosCreateOrConnectWithoutPedidosInput = {
@@ -576,6 +630,8 @@ export type enviosUpdateWithoutPedidosInput = {
   direccion?: Prisma.StringFieldUpdateOperationsInput | string
   fecha_envio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   estado?: Prisma.Enumenvios_estadoFieldUpdateOperationsInput | $Enums.envios_estado
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   companias_envios?: Prisma.companias_enviosUpdateOneRequiredWithoutEnviosNestedInput
 }
 
@@ -585,6 +641,8 @@ export type enviosUncheckedUpdateWithoutPedidosInput = {
   direccion?: Prisma.StringFieldUpdateOperationsInput | string
   fecha_envio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   estado?: Prisma.Enumenvios_estadoFieldUpdateOperationsInput | $Enums.envios_estado
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type enviosCreateManyCompanias_enviosInput = {
@@ -593,12 +651,16 @@ export type enviosCreateManyCompanias_enviosInput = {
   direccion: string
   fecha_envio?: Date | string | null
   estado?: $Enums.envios_estado
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type enviosUpdateWithoutCompanias_enviosInput = {
   direccion?: Prisma.StringFieldUpdateOperationsInput | string
   fecha_envio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   estado?: Prisma.Enumenvios_estadoFieldUpdateOperationsInput | $Enums.envios_estado
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pedidos?: Prisma.pedidosUpdateOneRequiredWithoutEnviosNestedInput
 }
 
@@ -608,6 +670,8 @@ export type enviosUncheckedUpdateWithoutCompanias_enviosInput = {
   direccion?: Prisma.StringFieldUpdateOperationsInput | string
   fecha_envio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   estado?: Prisma.Enumenvios_estadoFieldUpdateOperationsInput | $Enums.envios_estado
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type enviosUncheckedUpdateManyWithoutCompanias_enviosInput = {
@@ -616,6 +680,8 @@ export type enviosUncheckedUpdateManyWithoutCompanias_enviosInput = {
   direccion?: Prisma.StringFieldUpdateOperationsInput | string
   fecha_envio?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   estado?: Prisma.Enumenvios_estadoFieldUpdateOperationsInput | $Enums.envios_estado
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -627,6 +693,8 @@ export type enviosSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   direccion?: boolean
   fecha_envio?: boolean
   estado?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   pedidos?: boolean | Prisma.pedidosDefaultArgs<ExtArgs>
   companias_envios?: boolean | Prisma.companias_enviosDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["envios"]>
@@ -640,9 +708,11 @@ export type enviosSelectScalar = {
   direccion?: boolean
   fecha_envio?: boolean
   estado?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type enviosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "id_pedido" | "id_compania" | "direccion" | "fecha_envio" | "estado", ExtArgs["result"]["envios"]>
+export type enviosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "id_pedido" | "id_compania" | "direccion" | "fecha_envio" | "estado" | "createdAt" | "updatedAt", ExtArgs["result"]["envios"]>
 export type enviosInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   pedidos?: boolean | Prisma.pedidosDefaultArgs<ExtArgs>
   companias_envios?: boolean | Prisma.companias_enviosDefaultArgs<ExtArgs>
@@ -661,6 +731,8 @@ export type $enviosPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     direccion: string
     fecha_envio: Date | null
     estado: $Enums.envios_estado
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["envios"]>
   composites: {}
 }
@@ -1038,6 +1110,8 @@ export interface enviosFieldRefs {
   readonly direccion: Prisma.FieldRef<"envios", 'String'>
   readonly fecha_envio: Prisma.FieldRef<"envios", 'DateTime'>
   readonly estado: Prisma.FieldRef<"envios", 'envios_estado'>
+  readonly createdAt: Prisma.FieldRef<"envios", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"envios", 'DateTime'>
 }
     
 

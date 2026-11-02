@@ -42,11 +42,27 @@ export const remove = async (id: number) => {
 
 // Detalle: agregar producto a un pedido
 export const addDetalle = async (id_pedido: number, data: any) => {
-  return await prisma.detalle_pedido.create({
-    data: {
-      ...data,
-      id_pedido
-    }
+  const { id_producto, cantidad, precio_unitario } = data;
+
+  // Usamos upsert para busca si ya existe ese producto en este pedido.
+  return await prisma.detalle_pedido.upsert({
+    where: {
+      id_pedido_id_producto: { 
+        id_pedido: id_pedido, 
+        id_producto: id_producto 
+      }
+    },
+    update: {
+      // Si ya existe, le sumamos la cantidad nueva a la que ya tenía
+      cantidad: { increment: cantidad },
+    },
+    create: {
+      // Si no existe, lo creamos
+      id_pedido,
+      id_producto,
+      cantidad,
+      precio_unitario,
+    },
   });
 };
 

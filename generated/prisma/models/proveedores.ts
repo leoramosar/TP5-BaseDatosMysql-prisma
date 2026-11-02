@@ -42,6 +42,8 @@ export type ProveedoresMinAggregateOutputType = {
   email: string | null
   direccion: string | null
   activo: boolean | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ProveedoresMaxAggregateOutputType = {
@@ -52,6 +54,8 @@ export type ProveedoresMaxAggregateOutputType = {
   email: string | null
   direccion: string | null
   activo: boolean | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ProveedoresCountAggregateOutputType = {
@@ -62,6 +66,8 @@ export type ProveedoresCountAggregateOutputType = {
   email: number
   direccion: number
   activo: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -82,6 +88,8 @@ export type ProveedoresMinAggregateInputType = {
   email?: true
   direccion?: true
   activo?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type ProveedoresMaxAggregateInputType = {
@@ -92,6 +100,8 @@ export type ProveedoresMaxAggregateInputType = {
   email?: true
   direccion?: true
   activo?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type ProveedoresCountAggregateInputType = {
@@ -102,6 +112,8 @@ export type ProveedoresCountAggregateInputType = {
   email?: true
   direccion?: true
   activo?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -199,6 +211,8 @@ export type ProveedoresGroupByOutputType = {
   email: string | null
   direccion: string | null
   activo: boolean
+  createdAt: Date
+  updatedAt: Date
   _count: ProveedoresCountAggregateOutputType | null
   _avg: ProveedoresAvgAggregateOutputType | null
   _sum: ProveedoresSumAggregateOutputType | null
@@ -232,6 +246,8 @@ export type proveedoresWhereInput = {
   email?: Prisma.StringNullableFilter<"proveedores"> | string | null
   direccion?: Prisma.StringNullableFilter<"proveedores"> | string | null
   activo?: Prisma.BoolFilter<"proveedores"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"proveedores"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"proveedores"> | Date | string
   productos?: Prisma.ProductosListRelationFilter
 }
 
@@ -243,6 +259,8 @@ export type proveedoresOrderByWithRelationInput = {
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   direccion?: Prisma.SortOrderInput | Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   productos?: Prisma.productosOrderByRelationAggregateInput
   _relevance?: Prisma.proveedoresOrderByRelevanceInput
 }
@@ -258,6 +276,8 @@ export type proveedoresWhereUniqueInput = Prisma.AtLeast<{
   telefono?: Prisma.StringNullableFilter<"proveedores"> | string | null
   direccion?: Prisma.StringNullableFilter<"proveedores"> | string | null
   activo?: Prisma.BoolFilter<"proveedores"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"proveedores"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"proveedores"> | Date | string
   productos?: Prisma.ProductosListRelationFilter
 }, "id" | "cuit" | "email">
 
@@ -269,6 +289,8 @@ export type proveedoresOrderByWithAggregationInput = {
   email?: Prisma.SortOrderInput | Prisma.SortOrder
   direccion?: Prisma.SortOrderInput | Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.proveedoresCountOrderByAggregateInput
   _avg?: Prisma.proveedoresAvgOrderByAggregateInput
   _max?: Prisma.proveedoresMaxOrderByAggregateInput
@@ -287,6 +309,8 @@ export type proveedoresScalarWhereWithAggregatesInput = {
   email?: Prisma.StringNullableWithAggregatesFilter<"proveedores"> | string | null
   direccion?: Prisma.StringNullableWithAggregatesFilter<"proveedores"> | string | null
   activo?: Prisma.BoolWithAggregatesFilter<"proveedores"> | boolean
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"proveedores"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"proveedores"> | Date | string
 }
 
 export type proveedoresCreateInput = {
@@ -296,6 +320,8 @@ export type proveedoresCreateInput = {
   email?: string | null
   direccion?: string | null
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   productos?: Prisma.productosCreateNestedManyWithoutProveedoresInput
 }
 
@@ -307,6 +333,8 @@ export type proveedoresUncheckedCreateInput = {
   email?: string | null
   direccion?: string | null
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   productos?: Prisma.productosUncheckedCreateNestedManyWithoutProveedoresInput
 }
 
@@ -317,6 +345,8 @@ export type proveedoresUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   direccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   productos?: Prisma.productosUpdateManyWithoutProveedoresNestedInput
 }
 
@@ -328,6 +358,8 @@ export type proveedoresUncheckedUpdateInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   direccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   productos?: Prisma.productosUncheckedUpdateManyWithoutProveedoresNestedInput
 }
 
@@ -339,6 +371,8 @@ export type proveedoresCreateManyInput = {
   email?: string | null
   direccion?: string | null
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type proveedoresUpdateManyMutationInput = {
@@ -348,6 +382,8 @@ export type proveedoresUpdateManyMutationInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   direccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type proveedoresUncheckedUpdateManyInput = {
@@ -358,6 +394,8 @@ export type proveedoresUncheckedUpdateManyInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   direccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProveedoresNullableScalarRelationFilter = {
@@ -379,6 +417,8 @@ export type proveedoresCountOrderByAggregateInput = {
   email?: Prisma.SortOrder
   direccion?: Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type proveedoresAvgOrderByAggregateInput = {
@@ -393,6 +433,8 @@ export type proveedoresMaxOrderByAggregateInput = {
   email?: Prisma.SortOrder
   direccion?: Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type proveedoresMinOrderByAggregateInput = {
@@ -403,6 +445,8 @@ export type proveedoresMinOrderByAggregateInput = {
   email?: Prisma.SortOrder
   direccion?: Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type proveedoresSumOrderByAggregateInput = {
@@ -432,6 +476,8 @@ export type proveedoresCreateWithoutProductosInput = {
   email?: string | null
   direccion?: string | null
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type proveedoresUncheckedCreateWithoutProductosInput = {
@@ -442,6 +488,8 @@ export type proveedoresUncheckedCreateWithoutProductosInput = {
   email?: string | null
   direccion?: string | null
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type proveedoresCreateOrConnectWithoutProductosInput = {
@@ -467,6 +515,8 @@ export type proveedoresUpdateWithoutProductosInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   direccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type proveedoresUncheckedUpdateWithoutProductosInput = {
@@ -477,6 +527,8 @@ export type proveedoresUncheckedUpdateWithoutProductosInput = {
   email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   direccion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -518,6 +570,8 @@ export type proveedoresSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   email?: boolean
   direccion?: boolean
   activo?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   productos?: boolean | Prisma.proveedores$productosArgs<ExtArgs>
   _count?: boolean | Prisma.ProveedoresCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["proveedores"]>
@@ -532,9 +586,11 @@ export type proveedoresSelectScalar = {
   email?: boolean
   direccion?: boolean
   activo?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type proveedoresOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "cuit" | "telefono" | "email" | "direccion" | "activo", ExtArgs["result"]["proveedores"]>
+export type proveedoresOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "cuit" | "telefono" | "email" | "direccion" | "activo" | "createdAt" | "updatedAt", ExtArgs["result"]["proveedores"]>
 export type proveedoresInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   productos?: boolean | Prisma.proveedores$productosArgs<ExtArgs>
   _count?: boolean | Prisma.ProveedoresCountOutputTypeDefaultArgs<ExtArgs>
@@ -553,6 +609,8 @@ export type $proveedoresPayload<ExtArgs extends runtime.Types.Extensions.Interna
     email: string | null
     direccion: string | null
     activo: boolean
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["proveedores"]>
   composites: {}
 }
@@ -930,6 +988,8 @@ export interface proveedoresFieldRefs {
   readonly email: Prisma.FieldRef<"proveedores", 'String'>
   readonly direccion: Prisma.FieldRef<"proveedores", 'String'>
   readonly activo: Prisma.FieldRef<"proveedores", 'Boolean'>
+  readonly createdAt: Prisma.FieldRef<"proveedores", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"proveedores", 'DateTime'>
 }
     
 

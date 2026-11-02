@@ -44,6 +44,8 @@ export type EmpleadosMinAggregateOutputType = {
   salario: runtime.Decimal | null
   fecha_ingreso: Date | null
   activo: boolean | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type EmpleadosMaxAggregateOutputType = {
@@ -54,6 +56,8 @@ export type EmpleadosMaxAggregateOutputType = {
   salario: runtime.Decimal | null
   fecha_ingreso: Date | null
   activo: boolean | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type EmpleadosCountAggregateOutputType = {
@@ -64,6 +68,8 @@ export type EmpleadosCountAggregateOutputType = {
   salario: number
   fecha_ingreso: number
   activo: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -86,6 +92,8 @@ export type EmpleadosMinAggregateInputType = {
   salario?: true
   fecha_ingreso?: true
   activo?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type EmpleadosMaxAggregateInputType = {
@@ -96,6 +104,8 @@ export type EmpleadosMaxAggregateInputType = {
   salario?: true
   fecha_ingreso?: true
   activo?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type EmpleadosCountAggregateInputType = {
@@ -106,6 +116,8 @@ export type EmpleadosCountAggregateInputType = {
   salario?: true
   fecha_ingreso?: true
   activo?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -203,6 +215,8 @@ export type EmpleadosGroupByOutputType = {
   salario: runtime.Decimal
   fecha_ingreso: Date
   activo: boolean
+  createdAt: Date
+  updatedAt: Date
   _count: EmpleadosCountAggregateOutputType | null
   _avg: EmpleadosAvgAggregateOutputType | null
   _sum: EmpleadosSumAggregateOutputType | null
@@ -236,6 +250,8 @@ export type empleadosWhereInput = {
   salario?: Prisma.DecimalFilter<"empleados"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso?: Prisma.DateTimeFilter<"empleados"> | Date | string
   activo?: Prisma.BoolFilter<"empleados"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"empleados"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"empleados"> | Date | string
   pedidos?: Prisma.PedidosListRelationFilter
 }
 
@@ -247,6 +263,8 @@ export type empleadosOrderByWithRelationInput = {
   salario?: Prisma.SortOrder
   fecha_ingreso?: Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   pedidos?: Prisma.pedidosOrderByRelationAggregateInput
   _relevance?: Prisma.empleadosOrderByRelevanceInput
 }
@@ -262,6 +280,8 @@ export type empleadosWhereUniqueInput = Prisma.AtLeast<{
   salario?: Prisma.DecimalFilter<"empleados"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso?: Prisma.DateTimeFilter<"empleados"> | Date | string
   activo?: Prisma.BoolFilter<"empleados"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"empleados"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"empleados"> | Date | string
   pedidos?: Prisma.PedidosListRelationFilter
 }, "id">
 
@@ -273,6 +293,8 @@ export type empleadosOrderByWithAggregationInput = {
   salario?: Prisma.SortOrder
   fecha_ingreso?: Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.empleadosCountOrderByAggregateInput
   _avg?: Prisma.empleadosAvgOrderByAggregateInput
   _max?: Prisma.empleadosMaxOrderByAggregateInput
@@ -291,6 +313,8 @@ export type empleadosScalarWhereWithAggregatesInput = {
   salario?: Prisma.DecimalWithAggregatesFilter<"empleados"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso?: Prisma.DateTimeWithAggregatesFilter<"empleados"> | Date | string
   activo?: Prisma.BoolWithAggregatesFilter<"empleados"> | boolean
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"empleados"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"empleados"> | Date | string
 }
 
 export type empleadosCreateInput = {
@@ -300,6 +324,8 @@ export type empleadosCreateInput = {
   salario: runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso: Date | string
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   pedidos?: Prisma.pedidosCreateNestedManyWithoutEmpleadosInput
 }
 
@@ -311,6 +337,8 @@ export type empleadosUncheckedCreateInput = {
   salario: runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso: Date | string
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
   pedidos?: Prisma.pedidosUncheckedCreateNestedManyWithoutEmpleadosInput
 }
 
@@ -321,6 +349,8 @@ export type empleadosUpdateInput = {
   salario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pedidos?: Prisma.pedidosUpdateManyWithoutEmpleadosNestedInput
 }
 
@@ -332,6 +362,8 @@ export type empleadosUncheckedUpdateInput = {
   salario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pedidos?: Prisma.pedidosUncheckedUpdateManyWithoutEmpleadosNestedInput
 }
 
@@ -343,6 +375,8 @@ export type empleadosCreateManyInput = {
   salario: runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso: Date | string
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type empleadosUpdateManyMutationInput = {
@@ -352,6 +386,8 @@ export type empleadosUpdateManyMutationInput = {
   salario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type empleadosUncheckedUpdateManyInput = {
@@ -362,6 +398,8 @@ export type empleadosUncheckedUpdateManyInput = {
   salario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type empleadosOrderByRelevanceInput = {
@@ -378,6 +416,8 @@ export type empleadosCountOrderByAggregateInput = {
   salario?: Prisma.SortOrder
   fecha_ingreso?: Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type empleadosAvgOrderByAggregateInput = {
@@ -393,6 +433,8 @@ export type empleadosMaxOrderByAggregateInput = {
   salario?: Prisma.SortOrder
   fecha_ingreso?: Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type empleadosMinOrderByAggregateInput = {
@@ -403,6 +445,8 @@ export type empleadosMinOrderByAggregateInput = {
   salario?: Prisma.SortOrder
   fecha_ingreso?: Prisma.SortOrder
   activo?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type empleadosSumOrderByAggregateInput = {
@@ -413,10 +457,6 @@ export type empleadosSumOrderByAggregateInput = {
 export type EmpleadosScalarRelationFilter = {
   is?: Prisma.empleadosWhereInput
   isNot?: Prisma.empleadosWhereInput
-}
-
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
 }
 
 export type empleadosCreateNestedOneWithoutPedidosInput = {
@@ -440,6 +480,8 @@ export type empleadosCreateWithoutPedidosInput = {
   salario: runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso: Date | string
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type empleadosUncheckedCreateWithoutPedidosInput = {
@@ -450,6 +492,8 @@ export type empleadosUncheckedCreateWithoutPedidosInput = {
   salario: runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso: Date | string
   activo?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type empleadosCreateOrConnectWithoutPedidosInput = {
@@ -475,6 +519,8 @@ export type empleadosUpdateWithoutPedidosInput = {
   salario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type empleadosUncheckedUpdateWithoutPedidosInput = {
@@ -485,6 +531,8 @@ export type empleadosUncheckedUpdateWithoutPedidosInput = {
   salario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   fecha_ingreso?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activo?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -526,6 +574,8 @@ export type empleadosSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   salario?: boolean
   fecha_ingreso?: boolean
   activo?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   pedidos?: boolean | Prisma.empleados$pedidosArgs<ExtArgs>
   _count?: boolean | Prisma.EmpleadosCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["empleados"]>
@@ -540,9 +590,11 @@ export type empleadosSelectScalar = {
   salario?: boolean
   fecha_ingreso?: boolean
   activo?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type empleadosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "apellido" | "puesto" | "salario" | "fecha_ingreso" | "activo", ExtArgs["result"]["empleados"]>
+export type empleadosOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "apellido" | "puesto" | "salario" | "fecha_ingreso" | "activo" | "createdAt" | "updatedAt", ExtArgs["result"]["empleados"]>
 export type empleadosInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   pedidos?: boolean | Prisma.empleados$pedidosArgs<ExtArgs>
   _count?: boolean | Prisma.EmpleadosCountOutputTypeDefaultArgs<ExtArgs>
@@ -561,6 +613,8 @@ export type $empleadosPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     salario: runtime.Decimal
     fecha_ingreso: Date
     activo: boolean
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["empleados"]>
   composites: {}
 }
@@ -938,6 +992,8 @@ export interface empleadosFieldRefs {
   readonly salario: Prisma.FieldRef<"empleados", 'Decimal'>
   readonly fecha_ingreso: Prisma.FieldRef<"empleados", 'DateTime'>
   readonly activo: Prisma.FieldRef<"empleados", 'Boolean'>
+  readonly createdAt: Prisma.FieldRef<"empleados", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"empleados", 'DateTime'>
 }
     
 

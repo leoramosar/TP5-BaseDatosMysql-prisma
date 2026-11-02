@@ -48,6 +48,8 @@ export type Detalle_pedidoMinAggregateOutputType = {
   id_producto: number | null
   cantidad: number | null
   precio_unitario: runtime.Decimal | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type Detalle_pedidoMaxAggregateOutputType = {
@@ -56,6 +58,8 @@ export type Detalle_pedidoMaxAggregateOutputType = {
   id_producto: number | null
   cantidad: number | null
   precio_unitario: runtime.Decimal | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type Detalle_pedidoCountAggregateOutputType = {
@@ -64,6 +68,8 @@ export type Detalle_pedidoCountAggregateOutputType = {
   id_producto: number
   cantidad: number
   precio_unitario: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -90,6 +96,8 @@ export type Detalle_pedidoMinAggregateInputType = {
   id_producto?: true
   cantidad?: true
   precio_unitario?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type Detalle_pedidoMaxAggregateInputType = {
@@ -98,6 +106,8 @@ export type Detalle_pedidoMaxAggregateInputType = {
   id_producto?: true
   cantidad?: true
   precio_unitario?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type Detalle_pedidoCountAggregateInputType = {
@@ -106,6 +116,8 @@ export type Detalle_pedidoCountAggregateInputType = {
   id_producto?: true
   cantidad?: true
   precio_unitario?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -201,6 +213,8 @@ export type Detalle_pedidoGroupByOutputType = {
   id_producto: number
   cantidad: number
   precio_unitario: runtime.Decimal
+  createdAt: Date
+  updatedAt: Date
   _count: Detalle_pedidoCountAggregateOutputType | null
   _avg: Detalle_pedidoAvgAggregateOutputType | null
   _sum: Detalle_pedidoSumAggregateOutputType | null
@@ -232,6 +246,8 @@ export type detalle_pedidoWhereInput = {
   id_producto?: Prisma.IntFilter<"detalle_pedido"> | number
   cantidad?: Prisma.IntFilter<"detalle_pedido"> | number
   precio_unitario?: Prisma.DecimalFilter<"detalle_pedido"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFilter<"detalle_pedido"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"detalle_pedido"> | Date | string
   pedidos?: Prisma.XOR<Prisma.PedidosScalarRelationFilter, Prisma.pedidosWhereInput>
   productos?: Prisma.XOR<Prisma.ProductosScalarRelationFilter, Prisma.productosWhereInput>
 }
@@ -242,6 +258,8 @@ export type detalle_pedidoOrderByWithRelationInput = {
   id_producto?: Prisma.SortOrder
   cantidad?: Prisma.SortOrder
   precio_unitario?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   pedidos?: Prisma.pedidosOrderByWithRelationInput
   productos?: Prisma.productosOrderByWithRelationInput
 }
@@ -256,6 +274,8 @@ export type detalle_pedidoWhereUniqueInput = Prisma.AtLeast<{
   id_producto?: Prisma.IntFilter<"detalle_pedido"> | number
   cantidad?: Prisma.IntFilter<"detalle_pedido"> | number
   precio_unitario?: Prisma.DecimalFilter<"detalle_pedido"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFilter<"detalle_pedido"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"detalle_pedido"> | Date | string
   pedidos?: Prisma.XOR<Prisma.PedidosScalarRelationFilter, Prisma.pedidosWhereInput>
   productos?: Prisma.XOR<Prisma.ProductosScalarRelationFilter, Prisma.productosWhereInput>
 }, "id" | "id_pedido_id_producto">
@@ -266,6 +286,8 @@ export type detalle_pedidoOrderByWithAggregationInput = {
   id_producto?: Prisma.SortOrder
   cantidad?: Prisma.SortOrder
   precio_unitario?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.detalle_pedidoCountOrderByAggregateInput
   _avg?: Prisma.detalle_pedidoAvgOrderByAggregateInput
   _max?: Prisma.detalle_pedidoMaxOrderByAggregateInput
@@ -282,11 +304,15 @@ export type detalle_pedidoScalarWhereWithAggregatesInput = {
   id_producto?: Prisma.IntWithAggregatesFilter<"detalle_pedido"> | number
   cantidad?: Prisma.IntWithAggregatesFilter<"detalle_pedido"> | number
   precio_unitario?: Prisma.DecimalWithAggregatesFilter<"detalle_pedido"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"detalle_pedido"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"detalle_pedido"> | Date | string
 }
 
 export type detalle_pedidoCreateInput = {
   cantidad: number
   precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
   pedidos: Prisma.pedidosCreateNestedOneWithoutDetalle_pedidoInput
   productos: Prisma.productosCreateNestedOneWithoutDetalle_pedidoInput
 }
@@ -297,11 +323,15 @@ export type detalle_pedidoUncheckedCreateInput = {
   id_producto: number
   cantidad: number
   precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type detalle_pedidoUpdateInput = {
   cantidad?: Prisma.IntFieldUpdateOperationsInput | number
   precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pedidos?: Prisma.pedidosUpdateOneRequiredWithoutDetalle_pedidoNestedInput
   productos?: Prisma.productosUpdateOneRequiredWithoutDetalle_pedidoNestedInput
 }
@@ -312,6 +342,8 @@ export type detalle_pedidoUncheckedUpdateInput = {
   id_producto?: Prisma.IntFieldUpdateOperationsInput | number
   cantidad?: Prisma.IntFieldUpdateOperationsInput | number
   precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type detalle_pedidoCreateManyInput = {
@@ -320,11 +352,15 @@ export type detalle_pedidoCreateManyInput = {
   id_producto: number
   cantidad: number
   precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type detalle_pedidoUpdateManyMutationInput = {
   cantidad?: Prisma.IntFieldUpdateOperationsInput | number
   precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type detalle_pedidoUncheckedUpdateManyInput = {
@@ -333,6 +369,8 @@ export type detalle_pedidoUncheckedUpdateManyInput = {
   id_producto?: Prisma.IntFieldUpdateOperationsInput | number
   cantidad?: Prisma.IntFieldUpdateOperationsInput | number
   precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type detalle_pedidoId_pedidoId_productoCompoundUniqueInput = {
@@ -346,6 +384,8 @@ export type detalle_pedidoCountOrderByAggregateInput = {
   id_producto?: Prisma.SortOrder
   cantidad?: Prisma.SortOrder
   precio_unitario?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type detalle_pedidoAvgOrderByAggregateInput = {
@@ -362,6 +402,8 @@ export type detalle_pedidoMaxOrderByAggregateInput = {
   id_producto?: Prisma.SortOrder
   cantidad?: Prisma.SortOrder
   precio_unitario?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type detalle_pedidoMinOrderByAggregateInput = {
@@ -370,6 +412,8 @@ export type detalle_pedidoMinOrderByAggregateInput = {
   id_producto?: Prisma.SortOrder
   cantidad?: Prisma.SortOrder
   precio_unitario?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type detalle_pedidoSumOrderByAggregateInput = {
@@ -477,6 +521,8 @@ export type detalle_pedidoUncheckedUpdateManyWithoutProductosNestedInput = {
 export type detalle_pedidoCreateWithoutPedidosInput = {
   cantidad: number
   precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
   productos: Prisma.productosCreateNestedOneWithoutDetalle_pedidoInput
 }
 
@@ -485,6 +531,8 @@ export type detalle_pedidoUncheckedCreateWithoutPedidosInput = {
   id_producto: number
   cantidad: number
   precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type detalle_pedidoCreateOrConnectWithoutPedidosInput = {
@@ -522,11 +570,15 @@ export type detalle_pedidoScalarWhereInput = {
   id_producto?: Prisma.IntFilter<"detalle_pedido"> | number
   cantidad?: Prisma.IntFilter<"detalle_pedido"> | number
   precio_unitario?: Prisma.DecimalFilter<"detalle_pedido"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFilter<"detalle_pedido"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"detalle_pedido"> | Date | string
 }
 
 export type detalle_pedidoCreateWithoutProductosInput = {
   cantidad: number
   precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
   pedidos: Prisma.pedidosCreateNestedOneWithoutDetalle_pedidoInput
 }
 
@@ -535,6 +587,8 @@ export type detalle_pedidoUncheckedCreateWithoutProductosInput = {
   id_pedido: number
   cantidad: number
   precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type detalle_pedidoCreateOrConnectWithoutProductosInput = {
@@ -568,11 +622,15 @@ export type detalle_pedidoCreateManyPedidosInput = {
   id_producto: number
   cantidad: number
   precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type detalle_pedidoUpdateWithoutPedidosInput = {
   cantidad?: Prisma.IntFieldUpdateOperationsInput | number
   precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   productos?: Prisma.productosUpdateOneRequiredWithoutDetalle_pedidoNestedInput
 }
 
@@ -581,6 +639,8 @@ export type detalle_pedidoUncheckedUpdateWithoutPedidosInput = {
   id_producto?: Prisma.IntFieldUpdateOperationsInput | number
   cantidad?: Prisma.IntFieldUpdateOperationsInput | number
   precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type detalle_pedidoUncheckedUpdateManyWithoutPedidosInput = {
@@ -588,6 +648,8 @@ export type detalle_pedidoUncheckedUpdateManyWithoutPedidosInput = {
   id_producto?: Prisma.IntFieldUpdateOperationsInput | number
   cantidad?: Prisma.IntFieldUpdateOperationsInput | number
   precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type detalle_pedidoCreateManyProductosInput = {
@@ -595,11 +657,15 @@ export type detalle_pedidoCreateManyProductosInput = {
   id_pedido: number
   cantidad: number
   precio_unitario: runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type detalle_pedidoUpdateWithoutProductosInput = {
   cantidad?: Prisma.IntFieldUpdateOperationsInput | number
   precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   pedidos?: Prisma.pedidosUpdateOneRequiredWithoutDetalle_pedidoNestedInput
 }
 
@@ -608,6 +674,8 @@ export type detalle_pedidoUncheckedUpdateWithoutProductosInput = {
   id_pedido?: Prisma.IntFieldUpdateOperationsInput | number
   cantidad?: Prisma.IntFieldUpdateOperationsInput | number
   precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type detalle_pedidoUncheckedUpdateManyWithoutProductosInput = {
@@ -615,6 +683,8 @@ export type detalle_pedidoUncheckedUpdateManyWithoutProductosInput = {
   id_pedido?: Prisma.IntFieldUpdateOperationsInput | number
   cantidad?: Prisma.IntFieldUpdateOperationsInput | number
   precio_unitario?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -625,6 +695,8 @@ export type detalle_pedidoSelect<ExtArgs extends runtime.Types.Extensions.Intern
   id_producto?: boolean
   cantidad?: boolean
   precio_unitario?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
   pedidos?: boolean | Prisma.pedidosDefaultArgs<ExtArgs>
   productos?: boolean | Prisma.productosDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["detalle_pedido"]>
@@ -637,9 +709,11 @@ export type detalle_pedidoSelectScalar = {
   id_producto?: boolean
   cantidad?: boolean
   precio_unitario?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type detalle_pedidoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "id_pedido" | "id_producto" | "cantidad" | "precio_unitario", ExtArgs["result"]["detalle_pedido"]>
+export type detalle_pedidoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "id_pedido" | "id_producto" | "cantidad" | "precio_unitario" | "createdAt" | "updatedAt", ExtArgs["result"]["detalle_pedido"]>
 export type detalle_pedidoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   pedidos?: boolean | Prisma.pedidosDefaultArgs<ExtArgs>
   productos?: boolean | Prisma.productosDefaultArgs<ExtArgs>
@@ -657,6 +731,8 @@ export type $detalle_pedidoPayload<ExtArgs extends runtime.Types.Extensions.Inte
     id_producto: number
     cantidad: number
     precio_unitario: runtime.Decimal
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["detalle_pedido"]>
   composites: {}
 }
@@ -1033,6 +1109,8 @@ export interface detalle_pedidoFieldRefs {
   readonly id_producto: Prisma.FieldRef<"detalle_pedido", 'Int'>
   readonly cantidad: Prisma.FieldRef<"detalle_pedido", 'Int'>
   readonly precio_unitario: Prisma.FieldRef<"detalle_pedido", 'Decimal'>
+  readonly createdAt: Prisma.FieldRef<"detalle_pedido", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"detalle_pedido", 'DateTime'>
 }
     
 
